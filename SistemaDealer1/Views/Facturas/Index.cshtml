@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SistemaDealer1.Models.Factura>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vehiculo.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetodoPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empleado.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vehiculo.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Referencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetodoPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FacturaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FacturaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FacturaId })
+        </td>
+    </tr>
+}
+
+</table>
