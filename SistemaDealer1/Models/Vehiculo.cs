@@ -26,7 +26,7 @@ namespace SistemaDealer1.Models
 
         [Required(ErrorMessage = "Por favor indicar el tipo de transmision")]
         [Display(Name = "Tipo de Transmision")]
-        public int TransmisionId { get; set;}
+        public int TransmisionId { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar el combustible usado")]
         [Display(Name = "Combustible")]
@@ -41,11 +41,18 @@ namespace SistemaDealer1.Models
         public string Color { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar la cantidad de puertas del vehiculo")]
-        public int Puertas  { get; set; }
+        public int Puertas { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar la cantidad en existencia del vehiculo")]
         [Display(Name = "Cantidad en Existencia")]
         public int CantidadExistente { get; set; }
+
+        [Required(ErrorMessage = "Por favor insertar el Proveedor del Vehiculo")]
+        [Display(Name = "Proveedor")]
+        public int ProveedorId { get; set; }
+
+        [Display(Name = "Fecha de Entrada")]
+        public DateTime FechadeEntrada { get; set; }
 
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Por favor insertar el estatus del vehiculo"), MaxLength(30)]
@@ -65,5 +72,9 @@ namespace SistemaDealer1.Models
 
         public ICollection<Reserva> Reservas { get; set; }
         public ICollection<Factura> Facturas { get; set; }
+
+        [ForeignKey("ProveedorId")]
+        public Proveedor Proveedor { get; set; }
+
     }
 }

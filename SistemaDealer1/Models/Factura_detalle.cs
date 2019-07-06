@@ -7,25 +7,22 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 
+
 namespace SistemaDealer1.Models
 {
-    public class Factura_detalle
+    public class Factura_Detalle
     {
-        [Display(Name = "Factura")]
-        public int FacturaID { get; set; }
-        [Display(Name = "Vehiculo")]
-        public int VehiculoID { get; set; }
-        [Required(ErrorMessage = "Por favor insertar el precio unitario del Vehiculo")]
-        [Display(Name = "Precio Unitario")]
-        public int PrecioUnitario { get; set; }
-        [Required(ErrorMessage = "Por favor insertar la cantidad de vehiculos")]
+        [Key]
+        public int FacturaDetalleId { get; set; }
+        public int VehiculoId { get; set; }
+        public int FacturaId { get; set; }
+        public decimal PrecioUnidad { get; set; }
         public int Cantidad { get; set; }
-        public int Descuento { get; set; }
+        public int SubTotal { get; set; }
 
-        [ForeignKey ("FacturaID")]
-        public Factura Factura { get; set; }
-        [ForeignKey("VehiculoID")]
+        [ForeignKey("VehiculoId")]
         public Vehiculo Vehiculo { get; set; }
-
+        [ForeignKey("FacturaId")]
+        public Factura Factura { get; set; }
     }
 }
