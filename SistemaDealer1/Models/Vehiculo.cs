@@ -51,7 +51,7 @@ namespace SistemaDealer1.Models
         [Display(Name = "Proveedor")]
         public int ProveedorId { get; set; }
 
-        [Display(Name = "Fecha de Entrada ")]
+        [Display(Name = "Fecha de Entrada un cambio ")]
         public DateTime FechadeEntrada { get; set; }
 
         [DataType(DataType.Text)]
