@@ -43,6 +43,7 @@ namespace SistemaDealer1.Controllers
             ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion");
             ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion");
             ViewBag.TransmisionId = new SelectList(db.Transmisions, "TransmisionId", "Descripcion");
+            ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre");
             return View();
         }
 

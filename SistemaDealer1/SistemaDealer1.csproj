@@ -176,6 +176,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ModeloesController.cs" />
+    <Compile Include="Controllers\ProveedorsController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\SucursalsController.cs" />
@@ -195,6 +196,10 @@
     <Compile Include="Migrations\201907061945503_Migracion3.cs" />
     <Compile Include="Migrations\201907061945503_Migracion3.Designer.cs">
       <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907092304211_migration4.cs" />
+    <Compile Include="Migrations\201907092304211_migration4.Designer.cs">
+      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -312,6 +317,11 @@
     <Content Include="Views\Facturas\Details.cshtml" />
     <Content Include="Views\Facturas\Edit.cshtml" />
     <Content Include="Views\Facturas\Index.cshtml" />
+    <Content Include="Views\Proveedors\Create.cshtml" />
+    <Content Include="Views\Proveedors\Delete.cshtml" />
+    <Content Include="Views\Proveedors\Details.cshtml" />
+    <Content Include="Views\Proveedors\Edit.cshtml" />
+    <Content Include="Views\Proveedors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907061945503_Migracion3.resx">
       <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907092304211_migration4.resx">
+      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
