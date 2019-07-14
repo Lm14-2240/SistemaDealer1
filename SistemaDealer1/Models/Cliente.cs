@@ -44,6 +44,7 @@ namespace SistemaDealer1.Models
         public string EstatusCivil { get; set; }
         
         public ICollection<Factura> Facturas { get; set; }
+        public ICollection<Movimiento> Movimiento { get; set; }
 
     }
 }

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class HolaMundo : DbMigration
+    public partial class migracion4 : DbMigration
     {
         public override void Up()
         {
@@ -29,21 +29,20 @@
                 c => new
                     {
                         FacturaId = c.Int(nullable: false, identity: true),
-                        VehiculoId = c.Int(nullable: false),
                         EmpleadoId = c.Int(nullable: false),
                         ClienteId = c.Int(nullable: false),
-                        Referencia = c.String(nullable: false, maxLength: 30),
                         MetodoPago = c.String(nullable: false, maxLength: 30),
-                        Precio = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        PrecioTotal = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Fecha = c.DateTime(nullable: false),
+                        Vehiculo_VehiculoId = c.Int(),
                     })
                 .PrimaryKey(t => t.FacturaId)
                 .ForeignKey("dbo.Clientes", t => t.ClienteId, cascadeDelete: true)
+                .ForeignKey("dbo.Vehiculoes", t => t.Vehiculo_VehiculoId)
                 .ForeignKey("dbo.Empleadoes", t => t.EmpleadoId, cascadeDelete: true)
-                .ForeignKey("dbo.Vehiculoes", t => t.VehiculoId, cascadeDelete: true)
-                .Index(t => t.VehiculoId)
                 .Index(t => t.EmpleadoId)
-                .Index(t => t.ClienteId);
+                .Index(t => t.ClienteId)
+                .Index(t => t.Vehiculo_VehiculoId);
             
             CreateTable(
                 "dbo.Empleadoes",
@@ -62,24 +61,37 @@
                 .Index(t => t.RolId);
             
             CreateTable(
-                "dbo.Reservas",
+                "dbo.Movimientoes",
                 c => new
                     {
-                        ReservaId = c.Int(nullable: false, identity: true),
-                        ClienteId = c.Int(nullable: false),
-                        EmpleadoId = c.Int(nullable: false),
+                        MovimientoId = c.Int(nullable: false, identity: true),
+                        Tipo_Movimiento = c.String(nullable: false, maxLength: 30),
+                        Cantidad = c.Int(nullable: false),
                         VehiculoId = c.Int(nullable: false),
-                        FechaReserva = c.DateTime(nullable: false),
-                        FechaVencimiento = c.DateTime(nullable: false),
-                        Estatus = c.String(nullable: false, maxLength: 30),
+                        ProveedorId = c.Int(nullable: false),
+                        EmpleadoId = c.Int(nullable: false),
+                        ClienteId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ReservaId)
+                .PrimaryKey(t => t.MovimientoId)
                 .ForeignKey("dbo.Clientes", t => t.ClienteId, cascadeDelete: true)
                 .ForeignKey("dbo.Empleadoes", t => t.EmpleadoId, cascadeDelete: true)
+                .ForeignKey("dbo.Proveedors", t => t.ProveedorId, cascadeDelete: true)
                 .ForeignKey("dbo.Vehiculoes", t => t.VehiculoId, cascadeDelete: true)
-                .Index(t => t.ClienteId)
+                .Index(t => t.VehiculoId)
+                .Index(t => t.ProveedorId)
                 .Index(t => t.EmpleadoId)
-                .Index(t => t.VehiculoId);
+                .Index(t => t.ClienteId);
+            
+            CreateTable(
+                "dbo.Proveedors",
+                c => new
+                    {
+                        ProveedorId = c.Int(nullable: false, identity: true),
+                        Nombre = c.String(nullable: false, maxLength: 30),
+                        Telefono = c.String(nullable: false, maxLength: 30),
+                        Estatus = c.String(nullable: false, maxLength: 30),
+                    })
+                .PrimaryKey(t => t.ProveedorId);
             
             CreateTable(
                 "dbo.Vehiculoes",
@@ -94,6 +106,7 @@
                         Color = c.String(nullable: false, maxLength: 30),
                         Puertas = c.Int(nullable: false),
                         CantidadExistente = c.Int(nullable: false),
+                        FechadeEntrada = c.DateTime(nullable: false),
                         Estatus = c.String(nullable: false, maxLength: 30),
                     })
                 .PrimaryKey(t => t.VehiculoId)
@@ -116,6 +129,18 @@
                 .PrimaryKey(t => t.CombustibleId);
             
             CreateTable(
+                "dbo.Inventarios",
+                c => new
+                    {
+                        InventarioId = c.Int(nullable: false, identity: true),
+                        CantidadExistencia = c.Int(nullable: false),
+                        VehiculoId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.InventarioId)
+                .ForeignKey("dbo.Vehiculoes", t => t.VehiculoId, cascadeDelete: true)
+                .Index(t => t.VehiculoId);
+            
+            CreateTable(
                 "dbo.Marcas",
                 c => new
                     {
@@ -133,7 +158,7 @@
                         Descripcion = c.String(nullable: false, maxLength: 30),
                     })
                 .PrimaryKey(t => t.ModeloId)
-                .ForeignKey("dbo.Marcas", t => t.MarcaId)
+                .ForeignKey("dbo.Marcas", t => t.MarcaId, cascadeDelete: true)
                 .Index(t => t.MarcaId);
             
             CreateTable(
@@ -154,41 +179,86 @@
                     })
                 .PrimaryKey(t => t.RolId);
             
+            CreateTable(
+                "dbo.Factura_Detalle",
+                c => new
+                    {
+                        FacturaDetalleId = c.Int(nullable: false, identity: true),
+                        VehiculoId = c.Int(nullable: false),
+                        FacturaId = c.Int(nullable: false),
+                        PrecioUnidad = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Cantidad = c.Int(nullable: false),
+                        SubTotal = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.FacturaDetalleId)
+                .ForeignKey("dbo.Facturas", t => t.FacturaId, cascadeDelete: true)
+                .ForeignKey("dbo.Vehiculoes", t => t.VehiculoId, cascadeDelete: true)
+                .Index(t => t.VehiculoId)
+                .Index(t => t.FacturaId);
+            
+            CreateTable(
+                "dbo.Sucursals",
+                c => new
+                    {
+                        SucursalId = c.Int(nullable: false, identity: true),
+                        EmpleadoId = c.Int(nullable: false),
+                        Ubicacion = c.String(nullable: false, maxLength: 30),
+                        Telefono = c.String(nullable: false, maxLength: 30),
+                        Correo = c.String(nullable: false, maxLength: 30),
+                    })
+                .PrimaryKey(t => t.SucursalId)
+                .ForeignKey("dbo.Empleadoes", t => t.EmpleadoId, cascadeDelete: true)
+                .Index(t => t.EmpleadoId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Sucursals", "EmpleadoId", "dbo.Empleadoes");
+            DropForeignKey("dbo.Factura_Detalle", "VehiculoId", "dbo.Vehiculoes");
+            DropForeignKey("dbo.Factura_Detalle", "FacturaId", "dbo.Facturas");
+            DropForeignKey("dbo.Facturas", "EmpleadoId", "dbo.Empleadoes");
             DropForeignKey("dbo.Empleadoes", "RolId", "dbo.Rols");
+            DropForeignKey("dbo.Movimientoes", "VehiculoId", "dbo.Vehiculoes");
             DropForeignKey("dbo.Vehiculoes", "TransmisionId", "dbo.Transmisions");
-            DropForeignKey("dbo.Reservas", "VehiculoId", "dbo.Vehiculoes");
             DropForeignKey("dbo.Vehiculoes", "ModeloId", "dbo.Modeloes");
             DropForeignKey("dbo.Vehiculoes", "MarcaId", "dbo.Marcas");
             DropForeignKey("dbo.Modeloes", "MarcaId", "dbo.Marcas");
-            DropForeignKey("dbo.Facturas", "VehiculoId", "dbo.Vehiculoes");
+            DropForeignKey("dbo.Inventarios", "VehiculoId", "dbo.Vehiculoes");
+            DropForeignKey("dbo.Facturas", "Vehiculo_VehiculoId", "dbo.Vehiculoes");
             DropForeignKey("dbo.Vehiculoes", "CombustibleId", "dbo.Combustibles");
-            DropForeignKey("dbo.Reservas", "EmpleadoId", "dbo.Empleadoes");
-            DropForeignKey("dbo.Reservas", "ClienteId", "dbo.Clientes");
-            DropForeignKey("dbo.Facturas", "EmpleadoId", "dbo.Empleadoes");
+            DropForeignKey("dbo.Movimientoes", "ProveedorId", "dbo.Proveedors");
+            DropForeignKey("dbo.Movimientoes", "EmpleadoId", "dbo.Empleadoes");
+            DropForeignKey("dbo.Movimientoes", "ClienteId", "dbo.Clientes");
             DropForeignKey("dbo.Facturas", "ClienteId", "dbo.Clientes");
+            DropIndex("dbo.Sucursals", new[] { "EmpleadoId" });
+            DropIndex("dbo.Factura_Detalle", new[] { "FacturaId" });
+            DropIndex("dbo.Factura_Detalle", new[] { "VehiculoId" });
             DropIndex("dbo.Modeloes", new[] { "MarcaId" });
+            DropIndex("dbo.Inventarios", new[] { "VehiculoId" });
             DropIndex("dbo.Vehiculoes", new[] { "CombustibleId" });
             DropIndex("dbo.Vehiculoes", new[] { "TransmisionId" });
             DropIndex("dbo.Vehiculoes", new[] { "ModeloId" });
             DropIndex("dbo.Vehiculoes", new[] { "MarcaId" });
-            DropIndex("dbo.Reservas", new[] { "VehiculoId" });
-            DropIndex("dbo.Reservas", new[] { "EmpleadoId" });
-            DropIndex("dbo.Reservas", new[] { "ClienteId" });
+            DropIndex("dbo.Movimientoes", new[] { "ClienteId" });
+            DropIndex("dbo.Movimientoes", new[] { "EmpleadoId" });
+            DropIndex("dbo.Movimientoes", new[] { "ProveedorId" });
+            DropIndex("dbo.Movimientoes", new[] { "VehiculoId" });
             DropIndex("dbo.Empleadoes", new[] { "RolId" });
+            DropIndex("dbo.Facturas", new[] { "Vehiculo_VehiculoId" });
             DropIndex("dbo.Facturas", new[] { "ClienteId" });
             DropIndex("dbo.Facturas", new[] { "EmpleadoId" });
-            DropIndex("dbo.Facturas", new[] { "VehiculoId" });
+            DropTable("dbo.Sucursals");
+            DropTable("dbo.Factura_Detalle");
             DropTable("dbo.Rols");
             DropTable("dbo.Transmisions");
             DropTable("dbo.Modeloes");
             DropTable("dbo.Marcas");
+            DropTable("dbo.Inventarios");
             DropTable("dbo.Combustibles");
             DropTable("dbo.Vehiculoes");
-            DropTable("dbo.Reservas");
+            DropTable("dbo.Proveedors");
+            DropTable("dbo.Movimientoes");
             DropTable("dbo.Empleadoes");
             DropTable("dbo.Facturas");
             DropTable("dbo.Clientes");
