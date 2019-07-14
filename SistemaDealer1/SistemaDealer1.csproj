@@ -173,11 +173,9 @@
     <Compile Include="Controllers\CombustiblesController.cs" />
     <Compile Include="Controllers\EmpleadoesController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ModeloesController.cs" />
-    <Compile Include="Controllers\ProveedorsController.cs" />
-    <Compile Include="Controllers\ReservasController.cs" />
+    <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\SucursalsController.cs" />
     <Compile Include="Controllers\TransmisionsController.cs" />
@@ -185,33 +183,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906182235236_HolaMundo.cs" />
-    <Compile Include="Migrations\201906182235236_HolaMundo.Designer.cs">
-      <DependentUpon>201906182235236_HolaMundo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907022316531_Migracion2.cs" />
-    <Compile Include="Migrations\201907022316531_Migracion2.Designer.cs">
-      <DependentUpon>201907022316531_Migracion2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907061945503_Migracion3.cs" />
-    <Compile Include="Migrations\201907061945503_Migracion3.Designer.cs">
-      <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907092304211_migration4.cs" />
-    <Compile Include="Migrations\201907092304211_migration4.Designer.cs">
-      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
+    <Compile Include="Migrations\201907141541428_migracion4.cs" />
+    <Compile Include="Migrations\201907141541428_migracion4.Designer.cs">
+      <DependentUpon>201907141541428_migracion4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
     <Compile Include="Models\Factura_detalle.cs" />
+    <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Marca.cs" />
+    <Compile Include="Models\Movimiento.cs" />
     <Compile Include="Models\Personas.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Modelo.cs" />
     <Compile Include="Models\Proveedor.cs" />
-    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\SistemaDealer1DBContext.cs" />
     <Compile Include="Models\Sucursal.cs" />
@@ -317,11 +304,11 @@
     <Content Include="Views\Facturas\Details.cshtml" />
     <Content Include="Views\Facturas\Edit.cshtml" />
     <Content Include="Views\Facturas\Index.cshtml" />
-    <Content Include="Views\Proveedors\Create.cshtml" />
-    <Content Include="Views\Proveedors\Delete.cshtml" />
-    <Content Include="Views\Proveedors\Details.cshtml" />
-    <Content Include="Views\Proveedors\Edit.cshtml" />
-    <Content Include="Views\Proveedors\Index.cshtml" />
+    <Content Include="Views\Proveedores\Create.cshtml" />
+    <Content Include="Views\Proveedores\Delete.cshtml" />
+    <Content Include="Views\Proveedores\Details.cshtml" />
+    <Content Include="Views\Proveedores\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -339,17 +326,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906182235236_HolaMundo.resx">
-      <DependentUpon>201906182235236_HolaMundo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907022316531_Migracion2.resx">
-      <DependentUpon>201907022316531_Migracion2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907061945503_Migracion3.resx">
-      <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907092304211_migration4.resx">
-      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907141541428_migracion4.resx">
+      <DependentUpon>201907141541428_migracion4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,19 +13,21 @@ namespace SistemaDealer1.Controllers
     public class CombustiblesController : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
-       
+
+        // GET: Combustibles
         public ActionResult Index()
         {
             return View(db.Combustibles.ToList());
         }
 
+        // GET: Combustibles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var combustible = db.Combustibles.Find(id);
+            Combustible combustible = db.Combustibles.Find(id);
             if (combustible == null)
             {
                 return HttpNotFound();
@@ -33,6 +35,7 @@ namespace SistemaDealer1.Controllers
             return View(combustible);
         }
 
+        // GET: Combustibles/Create
         public ActionResult Create()
         {
             return View();
@@ -60,7 +63,7 @@ namespace SistemaDealer1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var combustible = db.Combustibles.Find(id);
+            Combustible combustible = db.Combustibles.Find(id);
             if (combustible == null)
             {
                 return HttpNotFound();
@@ -89,7 +92,7 @@ namespace SistemaDealer1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var combustible = db.Combustibles.Find(id);
+            Combustible combustible = db.Combustibles.Find(id);
             if (combustible == null)
             {
                 return HttpNotFound();
@@ -102,7 +105,7 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            var combustible = db.Combustibles.Find(id);
+            Combustible combustible = db.Combustibles.Find(id);
             db.Combustibles.Remove(combustible);
             db.SaveChanges();
             return RedirectToAction("Index");

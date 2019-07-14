@@ -10,107 +10,108 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class ProveedorsController : Controller
+    public class Sucursals1Controller : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Proveedors
+        // GET: Sucursals1
         public ActionResult Index()
         {
-            return View(db.Proveedores.ToList());
+            var sucursals = db.Sucursals.Include(s => s.Encargado);
+            return View(sucursals.ToList());
         }
 
-        // GET: Proveedors/Details/5
+        // GET: Sucursals1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proveedor proveedor = db.Proveedores.Find(id);
-            if (proveedor == null)
+            Sucursal sucursal = db.Sucursals.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(proveedor);
+            return View(sucursal);
         }
 
-        // GET: Proveedors/Create
+        // GET: Sucursals1/Create
         public ActionResult Create()
         {
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             return View();
         }
 
-        // POST: Proveedors/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Sucursals1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProveedorId,Nombre,Estatus")] Proveedor proveedor)
+        public ActionResult Create(Sucursal sucursal)
         {
             if (ModelState.IsValid)
             {
-                db.Proveedores.Add(proveedor);
+                db.Sucursals.Add(sucursal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(proveedor);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
+            return View(sucursal);
         }
 
-        // GET: Proveedors/Edit/5
+        // GET: Sucursals1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proveedor proveedor = db.Proveedores.Find(id);
-            if (proveedor == null)
+            Sucursal sucursal = db.Sucursals.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(proveedor);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
+            return View(sucursal);
         }
 
-        // POST: Proveedors/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Sucursals1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProveedorId,Nombre,Estatus")] Proveedor proveedor)
+        public ActionResult Edit(Sucursal sucursal)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(proveedor).State = EntityState.Modified;
+                db.Entry(sucursal).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(proveedor);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
+            return View(sucursal);
         }
 
-        // GET: Proveedors/Delete/5
+        // GET: Sucursals1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proveedor proveedor = db.Proveedores.Find(id);
-            if (proveedor == null)
+            Sucursal sucursal = db.Sucursals.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(proveedor);
+            return View(sucursal);
         }
 
-        // POST: Proveedors/Delete/5
+        // POST: Sucursals1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Proveedor proveedor = db.Proveedores.Find(id);
-            db.Proveedores.Remove(proveedor);
+            Sucursal sucursal = db.Sucursals.Find(id);
+            db.Sucursals.Remove(sucursal);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
