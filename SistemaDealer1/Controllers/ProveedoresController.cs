@@ -11,6 +11,7 @@ using SistemaDealer1.Models;
 namespace SistemaDealer1.Controllers
 {
     public class ProveedoresController : Controller
+
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
