@@ -52,18 +52,19 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Vehiculo vehiculo)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                db.Vehiculoes.Add(vehiculo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.CombustibleId = new SelectList(db.Combustibles, "CombustibleId", "Descripcion", vehiculo.CombustibleId);
+                ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", vehiculo.MarcaId);
+                ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion", vehiculo.ModeloId);
+                ViewBag.TransmisionId = new SelectList(db.Transmisions, "TransmisionId", "Descripcion", vehiculo.TransmisionId);
+                return View(vehiculo);      
             }
+            
+            db.Vehiculoes.Add(vehiculo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
-            ViewBag.CombustibleId = new SelectList(db.Combustibles, "CombustibleId", "Descripcion", vehiculo.CombustibleId);
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", vehiculo.MarcaId);
-            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion", vehiculo.ModeloId);
-            ViewBag.TransmisionId = new SelectList(db.Transmisions, "TransmisionId", "Descripcion", vehiculo.TransmisionId);
-            return View(vehiculo);
         }
 
         // GET: Vehiculoes/Edit/5

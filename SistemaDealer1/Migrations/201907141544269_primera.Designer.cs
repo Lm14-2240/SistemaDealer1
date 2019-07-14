@@ -7,13 +7,13 @@ namespace SistemaDealer1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0-preview6-19304-03")]
-    public sealed partial class HolaMundo : IMigrationMetadata
+    public sealed partial class primera : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(HolaMundo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(primera));
         
         string IMigrationMetadata.Id
         {
-            get { return "201906182235236_HolaMundo"; }
+            get { return "201907141544269_primera"; }
         }
         
         string IMigrationMetadata.Source

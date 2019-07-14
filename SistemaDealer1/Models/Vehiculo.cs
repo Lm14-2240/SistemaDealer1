@@ -26,15 +26,15 @@ namespace SistemaDealer1.Models
 
         [Required(ErrorMessage = "Por favor indicar el tipo de transmision")]
         [Display(Name = "Tipo de Transmision")]
-        public int TransmisionId { get; set; } = 1;
+        public int TransmisionId { get; set; } 
 
         [Required(ErrorMessage = "Por favor insertar el combustible usado")]
         [Display(Name = "Combustible")]
-        public int CombustibleId { get; set; } = 1;
+        public int CombustibleId { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Por favor insertar el Año del vehiculo")]
-        public DateTime Año { get; set; }
+        public string Año { get; set; }
 
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Por favor insertar el color del vehiculo"), MaxLength(30)]
@@ -43,20 +43,14 @@ namespace SistemaDealer1.Models
         [Required(ErrorMessage = "Por favor insertar la cantidad de puertas del vehiculo")]
         public int Puertas { get; set; }
 
-        [Required(ErrorMessage = "Por favor insertar la cantidad en existencia del vehiculo")]
-        [Display(Name = "Cantidad en Existencia")]
-        public int CantidadExistente { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar el Proveedor del Vehiculo")]
         [Display(Name = "Proveedor")]
-        public int ProveedorId { get; set; } = 1;
+        public int ProveedorId { get; set; }
 
         [Display(Name = "Fecha de Entrada un cambio ")]
         public DateTime FechadeEntrada { get; set; } = DateTime.Now;
 
-        [DataType(DataType.Text)]
-        [Required(ErrorMessage = "Por favor insertar el estatus del vehiculo"), MaxLength(30)]
-        public string Estatus { get; set; }
 
         [ForeignKey("MarcaId")]
         public Marca Marca { get; set; }

@@ -36,12 +36,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Puertas)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CantidadExistente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estatus)
-        </th>
         <th></th>
     </tr>
 
@@ -70,12 +64,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Puertas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CantidadExistente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.VehiculoId }) |

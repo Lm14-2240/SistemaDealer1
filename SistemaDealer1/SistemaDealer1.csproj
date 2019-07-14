@@ -177,7 +177,6 @@
     <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ModeloesController.cs" />
-    <Compile Include="Controllers\ProveedorsController.cs" />
     <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\SucursalsController.cs" />
     <Compile Include="Controllers\TransmisionsController.cs" />
@@ -185,21 +184,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201906182235236_HolaMundo.cs" />
-    <Compile Include="Migrations\201906182235236_HolaMundo.Designer.cs">
-      <DependentUpon>201906182235236_HolaMundo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907022316531_Migracion2.cs" />
-    <Compile Include="Migrations\201907022316531_Migracion2.Designer.cs">
-      <DependentUpon>201907022316531_Migracion2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907061945503_Migracion3.cs" />
-    <Compile Include="Migrations\201907061945503_Migracion3.Designer.cs">
-      <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907092304211_migration4.cs" />
-    <Compile Include="Migrations\201907092304211_migration4.Designer.cs">
-      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
+    <Compile Include="Migrations\201907141544269_primera.cs" />
+    <Compile Include="Migrations\201907141544269_primera.Designer.cs">
+      <DependentUpon>201907141544269_primera.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -379,24 +366,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906182235236_HolaMundo.resx">
-      <DependentUpon>201906182235236_HolaMundo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907022316531_Migracion2.resx">
-      <DependentUpon>201907022316531_Migracion2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907061945503_Migracion3.resx">
-      <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907092304211_migration4.resx">
-      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907141544269_primera.resx">
+      <DependentUpon>201907141544269_primera.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
