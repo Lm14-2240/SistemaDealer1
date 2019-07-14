@@ -19,9 +19,9 @@ namespace SistemaDealer1.Models
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         public string Nombre { get; set; }
 
-        [Required(ErrorMessage = "Por favor insertar el estatus")]
+        [Required(ErrorMessage = "Por favor insertar el Telefono")]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
-        public string Descripcion { get; set; }
+        public string Telefono { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar el estatus")]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
