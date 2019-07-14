@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SistemaDealer1.Models;
 
@@ -46,14 +42,17 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Rol rol)
         {
-            if (ModelState.IsValid)
-            {
-                db.Roles.Add(rol);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var verificacionExistencia = db.Roles.Any(r => r.Descripcion == rol.Descripcion);
+            if (verificacionExistencia)
+                ModelState.AddModelError("Descripcion", "Este rol ya existe.");
 
-            return View(rol);
+            if (!ModelState.IsValid)
+                         return View(rol);
+            
+            db.Roles.Add(rol);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+           
         }
 
         // GET: Rols/Edit/5

@@ -48,15 +48,20 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Modelo modelo)
         {
-            if (ModelState.IsValid)
+            var verificacionExistencia = db.Modelos.Any(m=>m.Descripcion == modelo.Descripcion.Trim() && m.MarcaId == modelo.MarcaId);
+            if (verificacionExistencia)
+                  ModelState.AddModelError("Descripcion", "Ya existe un modelo con este nombre asociado a esta marca");
+
+            if (!ModelState.IsValid)
             {
-                db.Modelos.Add(modelo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
+                return View(modelo);
             }
 
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
-            return View(modelo);
+            db.Modelos.Add(modelo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+       
         }
 
         // GET: Modeloes/Edit/5

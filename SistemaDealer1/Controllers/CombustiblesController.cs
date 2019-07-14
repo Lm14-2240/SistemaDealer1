@@ -46,14 +46,17 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Combustible combustible)
         {
-            if (ModelState.IsValid)
-            {
-                db.Combustibles.Add(combustible);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var verificacionExistencia = db.Combustibles.Any(c => c.Descripcion == combustible.Descripcion);
+            if (verificacionExistencia)
+                ModelState.AddModelError("Descripcion", "Este tipo de combustible ya existe en la base de datos.");
 
-            return View(combustible);
+            if (!ModelState.IsValid)
+                   return View(combustible);
+                       
+            db.Combustibles.Add(combustible);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         // GET: Combustibles/Edit/5

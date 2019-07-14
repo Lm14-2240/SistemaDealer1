@@ -46,14 +46,23 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Marca marca)
         {
-            if (ModelState.IsValid)
+            var verificacionExitencia = db.Marcas.Any(m => m.Descripcion == marca.Descripcion.Trim());
+
+            if (verificacionExitencia)
             {
-                db.Marcas.Add(marca);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.AddModelError("Descripcion", "Esta marca ya exite en la base de datos.");
+            }
+            if (!ModelState.IsValid)
+            {
+                return View(marca);
             }
 
-            return View(marca);
+
+
+            db.Marcas.Add(marca);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+         
         }
 
         // GET: Marcas/Edit/5
