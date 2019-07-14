@@ -28,6 +28,5 @@ namespace SistemaDealer1.Models
         public Rol Rol { get; set; }
 
         public ICollection<Factura> Facturas { get; set; }
-        public ICollection<Reserva> Reservas { get; set; }
     }
 }

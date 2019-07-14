@@ -10,103 +10,108 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class ClientesController : Controller
+    public class Sucursals1Controller : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Clientes
+        // GET: Sucursals1
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            var sucursals = db.Sucursals.Include(s => s.Encargado);
+            return View(sucursals.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: Sucursals1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Sucursal sucursal = db.Sucursals.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // GET: Clientes/Create
+        // GET: Sucursals1/Create
         public ActionResult Create()
         {
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Sucursals1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create(Sucursal sucursal)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.Sucursals.Add(sucursal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
+            return View(sucursal);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Sucursals1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Sucursal sucursal = db.Sucursals.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
+            return View(sucursal);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Sucursals1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Cliente cliente)
+        public ActionResult Edit(Sucursal sucursal)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(sucursal).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
+            return View(sucursal);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Sucursals1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Sucursal sucursal = db.Sucursals.Find(id);
+            if (sucursal == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(sucursal);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Sucursals1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            Sucursal sucursal = db.Sucursals.Find(id);
+            db.Sucursals.Remove(sucursal);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

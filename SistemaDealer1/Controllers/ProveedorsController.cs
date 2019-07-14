@@ -10,103 +10,107 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class ClientesController : Controller
+    public class ProveedorsController : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Clientes
+        // GET: Proveedors
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            return View(db.Proveedors.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: Proveedors/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Proveedor proveedor = db.Proveedors.Find(id);
+            if (proveedor == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(proveedor);
         }
 
-        // GET: Clientes/Create
+        // GET: Proveedors/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Proveedors/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create([Bind(Include = "ProveedorId,Estatus,FechaNacimiento,CedulaPasaporte,Telefono,Ubicacion")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.Proveedors.Add(proveedor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            return View(proveedor);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Proveedors/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Proveedor proveedor = db.Proveedors.Find(id);
+            if (proveedor == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(proveedor);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Proveedors/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Cliente cliente)
+        public ActionResult Edit([Bind(Include = "ProveedorId,Estatus,FechaNacimiento,CedulaPasaporte,Telefono,Ubicacion")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(proveedor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            return View(proveedor);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Proveedors/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Proveedor proveedor = db.Proveedors.Find(id);
+            if (proveedor == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(proveedor);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Proveedors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            Proveedor proveedor = db.Proveedors.Find(id);
+            db.Proveedors.Remove(proveedor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

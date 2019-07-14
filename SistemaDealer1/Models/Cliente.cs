@@ -42,8 +42,7 @@ namespace SistemaDealer1.Models
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         [Display(Name = "Estatus Civil")]
         public string EstatusCivil { get; set; }
-
-        public ICollection<Reserva> Reservas { get; set; }
+        
         public ICollection<Factura> Facturas { get; set; }
 
     }

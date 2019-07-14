@@ -19,18 +19,16 @@ namespace SistemaDealer1.Models
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<Modelo> Modelos { get; set; }
-        public DbSet<Reserva> Reservas { get; set; }
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Vehiculo> Vehiculoes { get; set; }
         public DbSet<Sucursal> Sucursals { get; set; }
         public DbSet<Transmision> Transmisions { get; set; }
+        public DbSet<Proveedor> Proveedors { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Empleado>().HasRequired(x => x.Rol);
             modelBuilder.Entity<Reserva>().HasRequired(x => x.Cliente);
-            modelBuilder.Entity<Reserva>().HasRequired(x => x.Empleado);
-            modelBuilder.Entity<Reserva>().HasRequired(x => x.Vehiculo);
             modelBuilder.Entity<Factura>().HasRequired(x => x.Cliente);
             modelBuilder.Entity<Factura>().HasRequired(x => x.Vehiculo);
             modelBuilder.Entity<Factura>().HasRequired(x => x.Empleado);
@@ -38,6 +36,7 @@ namespace SistemaDealer1.Models
             modelBuilder.Entity<Vehiculo>().HasRequired(x => x.Modelo);
             modelBuilder.Entity<Vehiculo>().HasRequired(x => x.Combustible);
             modelBuilder.Entity<Vehiculo>().HasRequired(x => x.Transmision);
+            modelBuilder.Entity<Vehiculo>().HasRequired(x => x.Proveedor);
             modelBuilder.Entity<Modelo>().HasRequired(x => x.Marca);
             modelBuilder.Entity<Sucursal>().HasRequired(x => x.Encargado);
 

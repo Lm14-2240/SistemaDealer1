@@ -63,7 +63,9 @@ namespace SistemaDealer1.Models
         [ForeignKey("CombustibleId")]
         public Combustible Combustible { get; set; }
 
-        public ICollection<Reserva> Reservas { get; set; }
+        [ForeignKey("ProveedorId")]
+        public Proveedor Proveedor { get; set; }
+
         public ICollection<Factura> Facturas { get; set; }
     }
 }
