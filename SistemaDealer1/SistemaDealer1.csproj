@@ -183,13 +183,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907141652447_p.cs" />
-    <Compile Include="Migrations\201907141652447_p.Designer.cs">
-      <DependentUpon>201907141652447_p.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907141711227_actualizarClientes.cs" />
-    <Compile Include="Migrations\201907141711227_actualizarClientes.Designer.cs">
-      <DependentUpon>201907141711227_actualizarClientes.cs</DependentUpon>
+    <Compile Include="Migrations\201907141818068_migration1.cs" />
+    <Compile Include="Migrations\201907141818068_migration1.Designer.cs">
+      <DependentUpon>201907141818068_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -330,11 +326,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907141652447_p.resx">
-      <DependentUpon>201907141652447_p.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907141711227_actualizarClientes.resx">
-      <DependentUpon>201907141711227_actualizarClientes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907141818068_migration1.resx">
+      <DependentUpon>201907141818068_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

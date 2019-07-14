@@ -3,18 +3,18 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class p : DbMigration
+    public partial class migration1 : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.Vehiculoes", "ProveedorId", "dbo.Proveedors");
             DropForeignKey("dbo.Reservas", "ClienteId", "dbo.Clientes");
             DropForeignKey("dbo.Reservas", "EmpleadoId", "dbo.Empleadoes");
+            DropForeignKey("dbo.Vehiculoes", "ProveedorId", "dbo.Proveedors");
             DropForeignKey("dbo.Reservas", "VehiculoId", "dbo.Vehiculoes");
-            DropIndex("dbo.Vehiculoes", new[] { "ProveedorId" });
             DropIndex("dbo.Reservas", new[] { "ClienteId" });
             DropIndex("dbo.Reservas", new[] { "EmpleadoId" });
             DropIndex("dbo.Reservas", new[] { "VehiculoId" });
+            DropIndex("dbo.Vehiculoes", new[] { "ProveedorId" });
             CreateTable(
                 "dbo.Movimientoes",
                 c => new
@@ -49,12 +49,9 @@
                 .ForeignKey("dbo.Vehiculoes", t => t.VehiculoId, cascadeDelete: true)
                 .Index(t => t.VehiculoId);
             
-            AddColumn("dbo.Vehiculoes", "CantidadExistente", c => c.Int(nullable: false));
-            AddColumn("dbo.Vehiculoes", "Estatus", c => c.String(nullable: false, maxLength: 30));
-            AddColumn("dbo.Proveedors", "Telefono", c => c.String(nullable: false, maxLength: 30));
-            AlterColumn("dbo.Vehiculoes", "Año", c => c.DateTime(nullable: false));
+            DropColumn("dbo.Clientes", "Genero");
+            DropColumn("dbo.Clientes", "EstatusCivil");
             DropColumn("dbo.Vehiculoes", "ProveedorId");
-            DropColumn("dbo.Proveedors", "Descripcion");
             DropTable("dbo.Reservas");
         }
         
@@ -74,8 +71,9 @@
                     })
                 .PrimaryKey(t => t.ReservaId);
             
-            AddColumn("dbo.Proveedors", "Descripcion", c => c.String(nullable: false, maxLength: 30));
             AddColumn("dbo.Vehiculoes", "ProveedorId", c => c.Int(nullable: false));
+            AddColumn("dbo.Clientes", "EstatusCivil", c => c.String(nullable: false, maxLength: 30));
+            AddColumn("dbo.Clientes", "Genero", c => c.String(nullable: false, maxLength: 30));
             DropForeignKey("dbo.Movimientoes", "VehiculoId", "dbo.Vehiculoes");
             DropForeignKey("dbo.Inventarios", "VehiculoId", "dbo.Vehiculoes");
             DropForeignKey("dbo.Movimientoes", "ProveedorId", "dbo.Proveedors");
@@ -86,20 +84,16 @@
             DropIndex("dbo.Movimientoes", new[] { "EmpleadoId" });
             DropIndex("dbo.Movimientoes", new[] { "ProveedorId" });
             DropIndex("dbo.Movimientoes", new[] { "VehiculoId" });
-            AlterColumn("dbo.Vehiculoes", "Año", c => c.String(nullable: false));
-            DropColumn("dbo.Proveedors", "Telefono");
-            DropColumn("dbo.Vehiculoes", "Estatus");
-            DropColumn("dbo.Vehiculoes", "CantidadExistente");
             DropTable("dbo.Inventarios");
             DropTable("dbo.Movimientoes");
+            CreateIndex("dbo.Vehiculoes", "ProveedorId");
             CreateIndex("dbo.Reservas", "VehiculoId");
             CreateIndex("dbo.Reservas", "EmpleadoId");
             CreateIndex("dbo.Reservas", "ClienteId");
-            CreateIndex("dbo.Vehiculoes", "ProveedorId");
             AddForeignKey("dbo.Reservas", "VehiculoId", "dbo.Vehiculoes", "VehiculoId", cascadeDelete: true);
+            AddForeignKey("dbo.Vehiculoes", "ProveedorId", "dbo.Proveedors", "ProveedorId", cascadeDelete: true);
             AddForeignKey("dbo.Reservas", "EmpleadoId", "dbo.Empleadoes", "EmpleadoId", cascadeDelete: true);
             AddForeignKey("dbo.Reservas", "ClienteId", "dbo.Clientes", "ClienteId", cascadeDelete: true);
-            AddForeignKey("dbo.Vehiculoes", "ProveedorId", "dbo.Proveedors", "ProveedorId", cascadeDelete: true);
         }
     }
 }
