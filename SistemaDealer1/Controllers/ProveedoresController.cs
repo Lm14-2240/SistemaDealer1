@@ -48,14 +48,17 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProveedorId,Nombre,Telefono,Estatus")] Proveedor proveedor)
         {
-            if (ModelState.IsValid)
-            {
-                db.Proveedores.Add(proveedor);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var verificacionExistencia = db.Proveedores.Any(p => p.Nombre == proveedor.Nombre);
+            if (verificacionExistencia)
+                ModelState.AddModelError("Nombre", "Este proveedor ya ha sido registrado.");
 
-            return View(proveedor);
+            if (!ModelState.IsValid)
+                return View(proveedor);
+
+            db.Proveedores.Add(proveedor);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         // GET: Proveedores/Edit/5

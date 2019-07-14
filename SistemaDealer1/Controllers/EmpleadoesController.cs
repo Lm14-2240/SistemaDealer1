@@ -48,15 +48,19 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Empleado empleado)
         {
-            if (ModelState.IsValid)
+            var verificacionExistencia = db.Empleados.Any(e => e.Usuario == empleado.Usuario);
+            if (verificacionExistencia)
+                ModelState.AddModelError("Usuario", "Este nombre de usuario ya existe.");
+            if (!ModelState.IsValid)
             {
-                db.Empleados.Add(empleado);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.RolId = new SelectList(db.Roles, "RolId", "Descripcion", empleado.RolId);
+                return View(empleado);
             }
 
-            ViewBag.RolId = new SelectList(db.Roles, "RolId", "Descripcion", empleado.RolId);
-            return View(empleado);
+            db.Empleados.Add(empleado);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         // GET: Empleadoes/Edit/5

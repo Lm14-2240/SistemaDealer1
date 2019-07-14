@@ -46,14 +46,18 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Cliente cliente)
         {
-            if (ModelState.IsValid)
-            {
-                db.Clientes.Add(cliente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var verificacionExistencia = db.Clientes.Any(c => c.CedulaPasaporte == cliente.CedulaPasaporte);
+            if (verificacionExistencia)
+                ModelState.AddModelError("CedulaPasaporte","Este número de cédula ya ha sido registrado.");
 
-            return View(cliente);
+            if (!ModelState.IsValid)
+                return View(cliente);
+
+            db.Clientes.Add(cliente);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
         }
 
         // GET: Clientes/Edit/5

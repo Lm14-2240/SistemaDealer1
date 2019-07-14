@@ -11,9 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr<th>
-            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
-        </th>
+    <tr>
 
         <th>
             @Html.DisplayNameFor(model => model.Combustible.Descripcion)
@@ -41,9 +39,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Proveedor.Nombre)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Combustible.Descripcion)
         </td>

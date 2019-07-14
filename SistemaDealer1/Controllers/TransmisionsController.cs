@@ -1,10 +1,6 @@
-﻿  using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SistemaDealer1.Models;
 
@@ -46,14 +42,16 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Transmision transmision)
         {
-            if (ModelState.IsValid)
-            {
-                db.Transmisions.Add(transmision);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var verificacionExistencia = db.Transmisions.Any(t => t.Descripcion == transmision.Descripcion);
+            if (verificacionExistencia)
+                ModelState.AddModelError("Descripcion", "Este tipo de transmición ya existe en la base de datos.");
 
-            return View(transmision);
+            if (ModelState.IsValid)
+                return View(transmision);
+
+            db.Transmisions.Add(transmision);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Transmisions/Edit/5
