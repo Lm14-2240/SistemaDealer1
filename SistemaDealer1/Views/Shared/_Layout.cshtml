@@ -21,16 +21,29 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Vehiculoes")</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vehiculo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <ul>
+                                <li>@Html.ActionLink("Combustibles", "Index", "Combustibles")</li>
+                                <li>@Html.ActionLink("Marcas", "Index", "Marcas")</li>
+                                <li>@Html.ActionLink("Modelos", "Index", "Modeloes")</li>
+                                <li>@Html.ActionLink("Transmisiones", "Index", "Transmisions")</li>
+
+                            </ul>
+                        </div>
+                    </li>
+
                     <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
-                    <li>@Html.ActionLink("Combustibles", "Index", "Combustibles")</li>
                     <li>@Html.ActionLink("Empleados", "Index", "Empleadoes")</li>
                     <li>@Html.ActionLink("Facturas", "Index", "Facturas")</li>
-                    <li>@Html.ActionLink("Marcas", "Index", "Marcas")</li>
-                    <li>@Html.ActionLink("Modelos", "Index", "Modeloes")</li>
+
                     <li>@Html.ActionLink("Reservas", "Index", "Reservas")</li>
                     <li>@Html.ActionLink("Roles", "Index", "Rols")</li>
                     <li>@Html.ActionLink("Sucursales", "Index", "Sucursals")</li>
-                    <li>@Html.ActionLink("Transmisiones", "Index", "Transmisions")</li>
+                    <li>@Html.ActionLink("Proveedores", "Index", "Proveedors")</li>
                     <li>@Html.ActionLink("Vehiculos", "Index", "Vehiculoes")</li>
                 </ul>
             </div>

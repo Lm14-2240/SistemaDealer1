@@ -173,11 +173,12 @@
     <Compile Include="Controllers\CombustiblesController.cs" />
     <Compile Include="Controllers\EmpleadoesController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ModeloesController.cs" />
     <Compile Include="Controllers\ProveedorsController.cs" />
+    <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="Controllers\RolsController.cs" />
-    <Compile Include="Controllers\Sucursals1Controller.cs" />
     <Compile Include="Controllers\SucursalsController.cs" />
     <Compile Include="Controllers\TransmisionsController.cs" />
     <Compile Include="Controllers\VehiculoesController.cs" />
@@ -192,9 +193,18 @@
     <Compile Include="Migrations\201907022316531_Migracion2.Designer.cs">
       <DependentUpon>201907022316531_Migracion2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907061945503_Migracion3.cs" />
+    <Compile Include="Migrations\201907061945503_Migracion3.Designer.cs">
+      <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907092304211_migration4.cs" />
+    <Compile Include="Migrations\201907092304211_migration4.Designer.cs">
+      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
+    <Compile Include="Models\Factura_detalle.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Personas.cs" />
     <Compile Include="Models\Empleado.cs" />
@@ -252,11 +262,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Clientes\Create.cshtml" />
-    <Content Include="Views\Clientes\Delete.cshtml" />
-    <Content Include="Views\Clientes\Details.cshtml" />
-    <Content Include="Views\Clientes\Edit.cshtml" />
-    <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Combustibles\Create.cshtml" />
     <Content Include="Views\Combustibles\Delete.cshtml" />
     <Content Include="Views\Combustibles\Details.cshtml" />
@@ -267,11 +272,6 @@
     <Content Include="Views\Empleadoes\Details.cshtml" />
     <Content Include="Views\Empleadoes\Edit.cshtml" />
     <Content Include="Views\Empleadoes\Index.cshtml" />
-    <Content Include="Views\Facturas\Create.cshtml" />
-    <Content Include="Views\Facturas\Delete.cshtml" />
-    <Content Include="Views\Facturas\Details.cshtml" />
-    <Content Include="Views\Facturas\Edit.cshtml" />
-    <Content Include="Views\Facturas\Index.cshtml" />
     <Content Include="Views\Marcas\Create.cshtml" />
     <Content Include="Views\Marcas\Delete.cshtml" />
     <Content Include="Views\Marcas\Details.cshtml" />
@@ -282,11 +282,6 @@
     <Content Include="Views\Modeloes\Details.cshtml" />
     <Content Include="Views\Modeloes\Edit.cshtml" />
     <Content Include="Views\Modeloes\Index.cshtml" />
-    <Content Include="Views\Proveedors\Create.cshtml" />
-    <Content Include="Views\Proveedors\Delete.cshtml" />
-    <Content Include="Views\Proveedors\Details.cshtml" />
-    <Content Include="Views\Proveedors\Edit.cshtml" />
-    <Content Include="Views\Proveedors\Index.cshtml" />
     <Content Include="Views\Rols\Create.cshtml" />
     <Content Include="Views\Rols\Delete.cshtml" />
     <Content Include="Views\Rols\Details.cshtml" />
@@ -297,21 +292,40 @@
     <Content Include="Views\Sucursals\Details.cshtml" />
     <Content Include="Views\Sucursals\Edit.cshtml" />
     <Content Include="Views\Sucursals\Index.cshtml" />
-    <Content Include="Views\Sucursals1\Create.cshtml" />
-    <Content Include="Views\Sucursals1\Delete.cshtml" />
-    <Content Include="Views\Sucursals1\Details.cshtml" />
-    <Content Include="Views\Sucursals1\Edit.cshtml" />
-    <Content Include="Views\Sucursals1\Index.cshtml" />
     <Content Include="Views\Transmisions\Create.cshtml" />
     <Content Include="Views\Transmisions\Delete.cshtml" />
     <Content Include="Views\Transmisions\Details.cshtml" />
     <Content Include="Views\Transmisions\Edit.cshtml" />
     <Content Include="Views\Transmisions\Index.cshtml" />
+    <Content Include="Views\Vehiculoes\Create.cshtml" />
+    <Content Include="Views\Vehiculoes\Delete.cshtml" />
+    <Content Include="Views\Vehiculoes\Details.cshtml" />
+    <Content Include="Views\Vehiculoes\Edit.cshtml" />
+    <Content Include="Views\Vehiculoes\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Reservas\Create.cshtml" />
+    <Content Include="Views\Reservas\Delete.cshtml" />
+    <Content Include="Views\Reservas\Details.cshtml" />
+    <Content Include="Views\Reservas\Edit.cshtml" />
+    <Content Include="Views\Reservas\Index.cshtml" />
+    <Content Include="Views\Facturas\Create.cshtml" />
+    <Content Include="Views\Facturas\Delete.cshtml" />
+    <Content Include="Views\Facturas\Details.cshtml" />
+    <Content Include="Views\Facturas\Edit.cshtml" />
+    <Content Include="Views\Facturas\Index.cshtml" />
+    <Content Include="Views\Proveedors\Create.cshtml" />
+    <Content Include="Views\Proveedors\Delete.cshtml" />
+    <Content Include="Views\Proveedors\Details.cshtml" />
+    <Content Include="Views\Proveedors\Edit.cshtml" />
+    <Content Include="Views\Proveedors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Servicios\" />
-    <Folder Include="Views\Vehiculoes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -330,6 +344,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907022316531_Migracion2.resx">
       <DependentUpon>201907022316531_Migracion2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907061945503_Migracion3.resx">
+      <DependentUpon>201907061945503_Migracion3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907092304211_migration4.resx">
+      <DependentUpon>201907092304211_migration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

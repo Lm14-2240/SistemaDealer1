@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -12,43 +11,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Estatus)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Estatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaNacimiento)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CedulaPasaporte)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CedulaPasaporte)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ubicacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ubicacion)
         </dd>
 
     </dl>

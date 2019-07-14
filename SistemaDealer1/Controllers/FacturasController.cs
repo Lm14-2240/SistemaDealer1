@@ -17,7 +17,7 @@ namespace SistemaDealer1.Controllers
         // GET: Facturas
         public ActionResult Index()
         {
-            var facturas = db.Facturas.Include(f => f.Cliente).Include(f => f.Empleado).Include(f => f.Vehiculo);
+            var facturas = db.Facturas.Include(f => f.Cliente).Include(f => f.Empleado);
             return View(facturas.ToList());
         }
 
@@ -41,7 +41,6 @@ namespace SistemaDealer1.Controllers
         {
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
-            ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color");
             return View();
         }
 
@@ -59,7 +58,6 @@ namespace SistemaDealer1.Controllers
 
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
-            ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", factura.VehiculoId);
             return View(factura);
         }
 
@@ -77,7 +75,6 @@ namespace SistemaDealer1.Controllers
             }
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
-            ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", factura.VehiculoId);
             return View(factura);
         }
 
@@ -94,7 +91,6 @@ namespace SistemaDealer1.Controllers
             }
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
-            ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", factura.VehiculoId);
             return View(factura);
         }
 
