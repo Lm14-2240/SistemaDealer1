@@ -12,6 +12,7 @@ namespace SistemaDealer1.Controllers
 {
     public class ClientesController : Controller
     {
+
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
         // GET: Clientes
