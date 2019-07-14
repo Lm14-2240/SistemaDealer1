@@ -10,18 +10,18 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class VehiculoesController : Controller
+    public class VehiculosController : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Vehiculoes
+        // GET: Vehiculos
         public ActionResult Index()
         {
             var vehiculoes = db.Vehiculoes.Include(v => v.Combustible).Include(v => v.Marca).Include(v => v.Modelo).Include(v => v.Transmision);
             return View(vehiculoes.ToList());
         }
 
-        // GET: Vehiculoes/Details/5
+        // GET: Vehiculos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,18 +36,17 @@ namespace SistemaDealer1.Controllers
             return View(vehiculo);
         }
 
-        // GET: Vehiculoes/Create
+        // GET: Vehiculos/Create
         public ActionResult Create()
         {
             ViewBag.CombustibleId = new SelectList(db.Combustibles, "CombustibleId", "Descripcion");
             ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion");
             ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion");
             ViewBag.TransmisionId = new SelectList(db.Transmisions, "TransmisionId", "Descripcion");
-            ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre");
             return View();
         }
 
-        // POST: Vehiculoes/Create
+        // POST: Vehiculos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Vehiculo vehiculo)
@@ -66,7 +65,7 @@ namespace SistemaDealer1.Controllers
             return View(vehiculo);
         }
 
-        // GET: Vehiculoes/Edit/5
+        // GET: Vehiculos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,7 +84,7 @@ namespace SistemaDealer1.Controllers
             return View(vehiculo);
         }
 
-        // POST: Vehiculoes/Edit/5
+        // POST: Vehiculos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Vehiculo vehiculo)
@@ -103,7 +102,7 @@ namespace SistemaDealer1.Controllers
             return View(vehiculo);
         }
 
-        // GET: Vehiculoes/Delete/5
+        // GET: Vehiculos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,7 +117,7 @@ namespace SistemaDealer1.Controllers
             return View(vehiculo);
         }
 
-        // POST: Vehiculoes/Delete/5
+        // POST: Vehiculos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

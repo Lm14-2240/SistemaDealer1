@@ -10,108 +10,103 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class SucursalsController : Controller
+    public class RolesController : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Sucursals
+        // GET: Roles
         public ActionResult Index()
         {
-            var sucursals = db.Sucursals.Include(s => s.Encargado);
-            return View(sucursals.ToList());
+            return View(db.Roles.ToList());
         }
 
-        // GET: Sucursals/Details/5
+        // GET: Roles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sucursal sucursal = db.Sucursals.Find(id);
-            if (sucursal == null)
+            Rol rol = db.Roles.Find(id);
+            if (rol == null)
             {
                 return HttpNotFound();
             }
-            return View(sucursal);
+            return View(rol);
         }
 
-        // GET: Sucursals/Create
+        // GET: Roles/Create
         public ActionResult Create()
         {
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             return View();
         }
 
-        // POST: Sucursals/Create
+        // POST: Roles/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Sucursal sucursal)
+        public ActionResult Create(Rol rol)
         {
             if (ModelState.IsValid)
             {
-                db.Sucursals.Add(sucursal);
+                db.Roles.Add(rol);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
-            return View(sucursal);
+            return View(rol);
         }
 
-        // GET: Sucursals/Edit/5
+        // GET: Roles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sucursal sucursal = db.Sucursals.Find(id);
-            if (sucursal == null)
+            Rol rol = db.Roles.Find(id);
+            if (rol == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
-            return View(sucursal);
+            return View(rol);
         }
 
-        // POST: Sucursals/Edit/5
+        // POST: Roles/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Sucursal sucursal)
+        public ActionResult Edit(Rol rol)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sucursal).State = EntityState.Modified;
+                db.Entry(rol).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", sucursal.EmpleadoId);
-            return View(sucursal);
+            return View(rol);
         }
 
-        // GET: Sucursals/Delete/5
+        // GET: Roles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sucursal sucursal = db.Sucursals.Find(id);
-            if (sucursal == null)
+            Rol rol = db.Roles.Find(id);
+            if (rol == null)
             {
                 return HttpNotFound();
             }
-            return View(sucursal);
+            return View(rol);
         }
 
-        // POST: Sucursals/Delete/5
+        // POST: Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Sucursal sucursal = db.Sucursals.Find(id);
-            db.Sucursals.Remove(sucursal);
+            Rol rol = db.Roles.Find(id);
+            db.Roles.Remove(rol);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -10,103 +10,108 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class ClientesController : Controller
+    public class ModelosController : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Clientes
+        // GET: Modelos
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            var modelos = db.Modelos.Include(m => m.Marca);
+            return View(modelos.ToList());
         }
 
-        // GET: Clientes/Details/5
+        // GET: Modelos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Modelo modelo = db.Modelos.Find(id);
+            if (modelo == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(modelo);
         }
 
-        // GET: Clientes/Create
+        // GET: Modelos/Create
         public ActionResult Create()
         {
+            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion");
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: Modelos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create(Modelo modelo)
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
+                db.Modelos.Add(modelo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
+            return View(modelo);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: Modelos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Modelo modelo = db.Modelos.Find(id);
+            if (modelo == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
+            return View(modelo);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: Modelos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Cliente cliente)
+        public ActionResult Edit(Modelo modelo)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                db.Entry(modelo).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
+            return View(modelo);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: Modelos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Clientes.Find(id);
-            if (cliente == null)
+            Modelo modelo = db.Modelos.Find(id);
+            if (modelo == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(modelo);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: Modelos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Clientes.Find(id);
-            db.Clientes.Remove(cliente);
+            Modelo modelo = db.Modelos.Find(id);
+            db.Modelos.Remove(modelo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

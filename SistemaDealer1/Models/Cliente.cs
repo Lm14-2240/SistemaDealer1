@@ -33,15 +33,6 @@ namespace SistemaDealer1.Models
         [Required(ErrorMessage = "Por favor insertar el Telefono")]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         public string Telefono { get; set; }
-
-        [Required(ErrorMessage = "Por favor insertar el genero del Cliente")]
-        [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
-        public string Genero { get; set; }
-
-        [Required(ErrorMessage = "Por favor insertar el Estatus Civil del Cliente")]
-        [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
-        [Display(Name = "Estatus Civil")]
-        public string EstatusCivil { get; set; }
         
         public ICollection<Factura> Facturas { get; set; }
         public ICollection<Movimiento> Movimiento { get; set; }

@@ -169,23 +169,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CombustiblesController.cs" />
     <Compile Include="Controllers\EmpleadoesController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
+    <Compile Include="Controllers\Factura_DetalleController.cs" />
+    <Compile Include="Controllers\InventariosController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
-    <Compile Include="Controllers\ModeloesController.cs" />
+    <Compile Include="Controllers\ModelosController.cs" />
+    <Compile Include="Controllers\MovimientosController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
-    <Compile Include="Controllers\RolsController.cs" />
-    <Compile Include="Controllers\SucursalsController.cs" />
-    <Compile Include="Controllers\TransmisionsController.cs" />
-    <Compile Include="Controllers\VehiculoesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\TransmisionesController.cs" />
+    <Compile Include="Controllers\VehiculosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907141541428_migracion4.cs" />
-    <Compile Include="Migrations\201907141541428_migracion4.Designer.cs">
-      <DependentUpon>201907141541428_migracion4.cs</DependentUpon>
+    <Compile Include="Migrations\201907141722452_migracion5.cs" />
+    <Compile Include="Migrations\201907141722452_migracion5.Designer.cs">
+      <DependentUpon>201907141722452_migracion5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -264,55 +265,48 @@
     <Content Include="Views\Marcas\Details.cshtml" />
     <Content Include="Views\Marcas\Edit.cshtml" />
     <Content Include="Views\Marcas\Index.cshtml" />
-    <Content Include="Views\Modeloes\Create.cshtml" />
-    <Content Include="Views\Modeloes\Delete.cshtml" />
-    <Content Include="Views\Modeloes\Details.cshtml" />
-    <Content Include="Views\Modeloes\Edit.cshtml" />
-    <Content Include="Views\Modeloes\Index.cshtml" />
-    <Content Include="Views\Rols\Create.cshtml" />
-    <Content Include="Views\Rols\Delete.cshtml" />
-    <Content Include="Views\Rols\Details.cshtml" />
-    <Content Include="Views\Rols\Edit.cshtml" />
-    <Content Include="Views\Rols\Index.cshtml" />
-    <Content Include="Views\Sucursals\Create.cshtml" />
-    <Content Include="Views\Sucursals\Delete.cshtml" />
-    <Content Include="Views\Sucursals\Details.cshtml" />
-    <Content Include="Views\Sucursals\Edit.cshtml" />
-    <Content Include="Views\Sucursals\Index.cshtml" />
-    <Content Include="Views\Transmisions\Create.cshtml" />
-    <Content Include="Views\Transmisions\Delete.cshtml" />
-    <Content Include="Views\Transmisions\Details.cshtml" />
-    <Content Include="Views\Transmisions\Edit.cshtml" />
-    <Content Include="Views\Transmisions\Index.cshtml" />
-    <Content Include="Views\Vehiculoes\Create.cshtml" />
-    <Content Include="Views\Vehiculoes\Delete.cshtml" />
-    <Content Include="Views\Vehiculoes\Details.cshtml" />
-    <Content Include="Views\Vehiculoes\Edit.cshtml" />
-    <Content Include="Views\Vehiculoes\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
-    <Content Include="Views\Reservas\Create.cshtml" />
-    <Content Include="Views\Reservas\Delete.cshtml" />
-    <Content Include="Views\Reservas\Details.cshtml" />
-    <Content Include="Views\Reservas\Edit.cshtml" />
-    <Content Include="Views\Reservas\Index.cshtml" />
-    <Content Include="Views\Facturas\Create.cshtml" />
-    <Content Include="Views\Facturas\Delete.cshtml" />
-    <Content Include="Views\Facturas\Details.cshtml" />
-    <Content Include="Views\Facturas\Edit.cshtml" />
-    <Content Include="Views\Facturas\Index.cshtml" />
     <Content Include="Views\Proveedores\Create.cshtml" />
     <Content Include="Views\Proveedores\Delete.cshtml" />
     <Content Include="Views\Proveedores\Details.cshtml" />
     <Content Include="Views\Proveedores\Edit.cshtml" />
     <Content Include="Views\Proveedores\Index.cshtml" />
+    <Content Include="Views\Vehiculos\Create.cshtml" />
+    <Content Include="Views\Vehiculos\Delete.cshtml" />
+    <Content Include="Views\Vehiculos\Details.cshtml" />
+    <Content Include="Views\Vehiculos\Edit.cshtml" />
+    <Content Include="Views\Vehiculos\Index.cshtml" />
+    <Content Include="Views\Facturas\Create.cshtml" />
+    <Content Include="Views\Facturas\Delete.cshtml" />
+    <Content Include="Views\Facturas\Details.cshtml" />
+    <Content Include="Views\Facturas\Edit.cshtml" />
+    <Content Include="Views\Facturas\Index.cshtml" />
+    <Content Include="Views\Modelos\Create.cshtml" />
+    <Content Include="Views\Modelos\Delete.cshtml" />
+    <Content Include="Views\Modelos\Details.cshtml" />
+    <Content Include="Views\Modelos\Edit.cshtml" />
+    <Content Include="Views\Modelos\Index.cshtml" />
+    <Content Include="Views\Movimientos\Create.cshtml" />
+    <Content Include="Views\Movimientos\Delete.cshtml" />
+    <Content Include="Views\Movimientos\Details.cshtml" />
+    <Content Include="Views\Movimientos\Edit.cshtml" />
+    <Content Include="Views\Movimientos\Index.cshtml" />
+    <Content Include="Views\Inventarios\Create.cshtml" />
+    <Content Include="Views\Inventarios\Delete.cshtml" />
+    <Content Include="Views\Inventarios\Details.cshtml" />
+    <Content Include="Views\Inventarios\Edit.cshtml" />
+    <Content Include="Views\Inventarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Servicios\" />
+    <Folder Include="Views\Factura_Detalle\" />
+    <Folder Include="Views\Roles\" />
+    <Folder Include="Views\Transmisiones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -326,8 +320,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907141541428_migracion4.resx">
-      <DependentUpon>201907141541428_migracion4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907141722452_migracion5.resx">
+      <DependentUpon>201907141722452_migracion5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

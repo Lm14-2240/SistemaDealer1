@@ -10,108 +10,103 @@ using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
 {
-    public class ModeloesController : Controller
+    public class TransmisionesController : Controller
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
-        // GET: Modeloes
+        // GET: Transmisiones
         public ActionResult Index()
         {
-            var modelos = db.Modelos.Include(m => m.Marca);
-            return View(modelos.ToList());
+            return View(db.Transmisions.ToList());
         }
 
-        // GET: Modeloes/Details/5
+        // GET: Transmisiones/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Modelo modelo = db.Modelos.Find(id);
-            if (modelo == null)
+            Transmision transmision = db.Transmisions.Find(id);
+            if (transmision == null)
             {
                 return HttpNotFound();
             }
-            return View(modelo);
+            return View(transmision);
         }
 
-        // GET: Modeloes/Create
+        // GET: Transmisiones/Create
         public ActionResult Create()
         {
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion");
             return View();
         }
 
-        // POST: Modeloes/Create
+        // POST: Transmisiones/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Modelo modelo)
+        public ActionResult Create(Transmision transmision)
         {
             if (ModelState.IsValid)
             {
-                db.Modelos.Add(modelo);
+                db.Transmisions.Add(transmision);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
-            return View(modelo);
+            return View(transmision);
         }
 
-        // GET: Modeloes/Edit/5
+        // GET: Transmisiones/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Modelo modelo = db.Modelos.Find(id);
-            if (modelo == null)
+            Transmision transmision = db.Transmisions.Find(id);
+            if (transmision == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
-            return View(modelo);
+            return View(transmision);
         }
 
-        // POST: Modeloes/Edit/5
+        // POST: Transmisiones/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Modelo modelo)
+        public ActionResult Edit(Transmision transmision)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(modelo).State = EntityState.Modified;
+                db.Entry(transmision).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion", modelo.MarcaId);
-            return View(modelo);
+            return View(transmision);
         }
 
-        // GET: Modeloes/Delete/5
+        // GET: Transmisiones/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Modelo modelo = db.Modelos.Find(id);
-            if (modelo == null)
+            Transmision transmision = db.Transmisions.Find(id);
+            if (transmision == null)
             {
                 return HttpNotFound();
             }
-            return View(modelo);
+            return View(transmision);
         }
 
-        // POST: Modeloes/Delete/5
+        // POST: Transmisiones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Modelo modelo = db.Modelos.Find(id);
-            db.Modelos.Remove(modelo);
+            Transmision transmision = db.Transmisions.Find(id);
+            db.Transmisions.Remove(transmision);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,4 +1,4 @@
-﻿@model SistemaDealer1.Models.Factura
+﻿@model SistemaDealer1.Models.Movimiento
 
 @{
     ViewBag.Title = "Details";
@@ -8,7 +8,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Factura</h4>
+    <h4>Movimiento</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,32 +28,40 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MetodoPago)
+            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MetodoPago)
+            @Html.DisplayFor(model => model.Proveedor.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PrecioTotal)
+            @Html.DisplayNameFor(model => model.Vehiculo.Color)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PrecioTotal)
+            @Html.DisplayFor(model => model.Vehiculo.Color)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
+            @Html.DisplayNameFor(model => model.Tipo_Movimiento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Fecha)
+            @Html.DisplayFor(model => model.Tipo_Movimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.FacturaId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MovimientoId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
