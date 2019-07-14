@@ -75,8 +75,6 @@ namespace SistemaDealer1.Models
 
         public ICollection<Factura> Facturas { get; set; }
 
-        [ForeignKey("ProveedorId")]
-        public Proveedor Proveedor { get; set; }
 
     }
 }
