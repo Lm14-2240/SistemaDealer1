@@ -1,0 +1,67 @@
+﻿@model SistemaDealer1.Models.Movimiento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movimiento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedor.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehiculo.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehiculo.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Movimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Movimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MovimientoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

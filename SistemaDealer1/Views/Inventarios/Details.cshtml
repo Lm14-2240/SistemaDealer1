@@ -1,0 +1,35 @@
+﻿@model SistemaDealer1.Models.Inventario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inventario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehiculo.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehiculo.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadExistencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadExistencia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InventarioId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
