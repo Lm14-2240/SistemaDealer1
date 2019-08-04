@@ -13,15 +13,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Rol.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contraseña)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
@@ -30,20 +21,20 @@
         <th>
             @Html.DisplayNameFor(model => model.Correo)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rol.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rol.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contraseña)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
@@ -54,9 +45,18 @@
             @Html.DisplayFor(modelItem => item.Correo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmpleadoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmpleadoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmpleadoId })
+            @Html.DisplayFor(modelItem => item.Rol.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contraseña)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.EmpleadoId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EmpleadoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EmpleadoId })
         </td>
     </tr>
 }

@@ -66,32 +66,28 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Vehículo
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @Html.ActionLink("Combustibles", "Index", "Combustibles", new {@class = "nav-link"})
-                        @Html.ActionLink("Marcas", "Index", "Marcas", new {@class = "nav-link"})
-                        @Html.ActionLink("Modelos", "Index", "Modeloes", new {@class = "nav-link"})
-                        @Html.ActionLink("Transmisiones", "Index", "Transmisions", new {@class = "nav-link"})
+                        @Html.ActionLink("Combustibles", "Index", "Combustibles")
+                        @Html.ActionLink("Marcas", "Index", "Marcas")
+                        @Html.ActionLink("Modelos", "Index", "Modeloes")
+                        @Html.ActionLink("Transmisiones", "Index", "Transmisions")
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item">@Html.ActionLink("Clientes", "Index", "Clientes", new {@class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("Empleados", "Index", "Empleadoes", new {@class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("Facturas", "Index", "Facturas", new {@class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Clientes", "Index", "Clientes")</li>
+                <li class="nav-item">@Html.ActionLink("Empleados", "Index", "Empleadoes")</li>
+                <li class="nav-item">@Html.ActionLink("Facturas", "Index", "Facturas")</li>
 
-                <li class="nav-item">@Html.ActionLink("Reservas", "Index", "Reservas", new {@class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("Roles", "Index", "Rols", new {@class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("Sucursales", "Index", "Sucursals", new {@class = "nav-link"})</li>
-                <li class="nav-item" >@Html.ActionLink("Proveedores", "Index", "Proveedores", new {@class = "nav-link"})</li>
-                <li class="nav-item">@Html.ActionLink("Vehiculos", "Index", "Vehiculoes", new {@class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Roles", "Index", "Rols")</li>
+                <li class="nav-item">@Html.ActionLink("Sucursales", "Index", "Sucursals")</li>
+                <li class="nav-item" >@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
+                <li class="nav-item">@Html.ActionLink("Vehiculos", "Index", "Vehiculoes")</li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
