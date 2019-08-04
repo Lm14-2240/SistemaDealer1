@@ -20,6 +20,7 @@ namespace SistemaDealer1.Models
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         public string Estatus { get; set; }
 
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "Por favor insertar la Fecha de Nacimiento")]
         //[StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         [Display(Name = "Fecha de Nacimiento")]
