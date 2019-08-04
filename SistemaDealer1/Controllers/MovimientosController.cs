@@ -53,18 +53,54 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MovimientoId,Tipo_Movimiento,Cantidad,VehiculoId,ProveedorId,EmpleadoId,ClienteId")] Movimiento movimiento)
         {
-            if (ModelState.IsValid)
+
+            if (movimiento.Tipo_Movimiento == "Venta")
             {
-                db.Movimientos.Add(movimiento);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var existencia = db.Inventarios.SingleOrDefault(i => i.VehiculoId == movimiento.VehiculoId).CantidadExistencia;
+                if (existencia < movimiento.Cantidad)
+                {
+                    ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
+                    ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
+                    ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre", movimiento.ProveedorId);
+                    ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", movimiento.VehiculoId);
+                    ModelState.AddModelError("Cantidad", "Esta cantidad de vehículos solicitada, excede la cantidad en inventario.");
+                    return View(movimiento);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    db.Movimientos.Add(movimiento);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
+                ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
+                ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre", movimiento.ProveedorId);
+                ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", movimiento.VehiculoId);
+                return View(movimiento);
+
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Movimientos.Add(movimiento);
+                    var aumentarInventario = db.Inventarios.SingleOrDefault(i => i.VehiculoId == movimiento.VehiculoId);
+                    aumentarInventario.CantidadExistencia = aumentarInventario.CantidadExistencia + movimiento.Cantidad;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
+                ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
+                ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre", movimiento.ProveedorId);
+                ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", movimiento.VehiculoId);
+                return View(movimiento);
             }
 
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
-            ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre", movimiento.ProveedorId);
-            ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", movimiento.VehiculoId);
-            return View(movimiento);
+
+      
         }
 
         // GET: Movimientos/Edit/5
