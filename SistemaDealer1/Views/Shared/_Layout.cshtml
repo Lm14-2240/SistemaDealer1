@@ -8,7 +8,7 @@
         @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div  style="display:flex; flex-direction:column">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,18 +22,17 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Vehiculoes")</li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Vehiculo
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <ul>
-                                <li>@Html.ActionLink("Combustibles", "Index", "Combustibles")</li>
-                                <li>@Html.ActionLink("Marcas", "Index", "Marcas")</li>
-                                <li>@Html.ActionLink("Modelos", "Index", "Modeloes")</li>
-                                <li>@Html.ActionLink("Transmisiones", "Index", "Transmisions")</li>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Vehiculos
+                            <span class="caret"></span>
+                        </button>
 
-                            </ul>
-                        </div>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>@Html.ActionLink("Combustibles", "Index", "Combustibles")</li>
+                            <li>@Html.ActionLink("Marcas", "Index", "Marcas")</li>
+                            <li>@Html.ActionLink("Modelos", "Index", "Modeloes")</li>
+                            <li>@Html.ActionLink("Transmisiones", "Index", "Transmisions")</li>
+                        </ul>
                     </li>
 
                     <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
