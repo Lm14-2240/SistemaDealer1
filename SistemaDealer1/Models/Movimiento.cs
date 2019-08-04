@@ -16,8 +16,8 @@ namespace SistemaDealer1.Models
         public int MovimientoId { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar el tipo de movimiento")]
-        [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
-        public string Tipo_Movimiento { get; set; }
+        [Display(Name = "Tipo de Movimiento")]
+        public string TipoMovimiento { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar la Cantidad comprada/vendida")]
         [Display(Name = "Cantidad Comprada/Vendida")]

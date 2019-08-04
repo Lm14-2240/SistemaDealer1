@@ -14,6 +14,7 @@ namespace SistemaDealer1.Controllers
     {
         private SistemaDealer1DBContext db = new SistemaDealer1DBContext();
 
+
         // GET: Inventarios
         public ActionResult Index()
         {

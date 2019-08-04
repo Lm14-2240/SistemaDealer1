@@ -186,9 +186,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907141722452_migracion5.cs" />
-    <Compile Include="Migrations\201907141722452_migracion5.Designer.cs">
-      <DependentUpon>201907141722452_migracion5.cs</DependentUpon>
+    <Compile Include="Migrations\201907302134416_Migration7.cs" />
+    <Compile Include="Migrations\201907302134416_Migration7.Designer.cs">
+      <DependentUpon>201907302134416_Migration7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907302258327_Migration8.cs" />
+    <Compile Include="Migrations\201907302258327_Migration8.Designer.cs">
+      <DependentUpon>201907302258327_Migration8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -277,11 +281,6 @@
     <Content Include="Views\Vehiculos\Details.cshtml" />
     <Content Include="Views\Vehiculos\Edit.cshtml" />
     <Content Include="Views\Vehiculos\Index.cshtml" />
-    <Content Include="Views\Facturas\Create.cshtml" />
-    <Content Include="Views\Facturas\Delete.cshtml" />
-    <Content Include="Views\Facturas\Details.cshtml" />
-    <Content Include="Views\Facturas\Edit.cshtml" />
-    <Content Include="Views\Facturas\Index.cshtml" />
     <Content Include="Views\Modelos\Create.cshtml" />
     <Content Include="Views\Modelos\Delete.cshtml" />
     <Content Include="Views\Modelos\Details.cshtml" />
@@ -292,11 +291,6 @@
     <Content Include="Views\Movimientos\Details.cshtml" />
     <Content Include="Views\Movimientos\Edit.cshtml" />
     <Content Include="Views\Movimientos\Index.cshtml" />
-    <Content Include="Views\Inventarios\Create.cshtml" />
-    <Content Include="Views\Inventarios\Delete.cshtml" />
-    <Content Include="Views\Inventarios\Details.cshtml" />
-    <Content Include="Views\Inventarios\Edit.cshtml" />
-    <Content Include="Views\Inventarios\Index.cshtml" />
     <Content Include="Views\Transmisiones\Create.cshtml" />
     <Content Include="Views\Transmisiones\Delete.cshtml" />
     <Content Include="Views\Transmisiones\Details.cshtml" />
@@ -317,6 +311,16 @@
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Inventarios\Create.cshtml" />
+    <Content Include="Views\Inventarios\Delete.cshtml" />
+    <Content Include="Views\Inventarios\Details.cshtml" />
+    <Content Include="Views\Inventarios\Edit.cshtml" />
+    <Content Include="Views\Inventarios\Index.cshtml" />
+    <Content Include="Views\Facturas\Create.cshtml" />
+    <Content Include="Views\Facturas\Delete.cshtml" />
+    <Content Include="Views\Facturas\Details.cshtml" />
+    <Content Include="Views\Facturas\Edit.cshtml" />
+    <Content Include="Views\Facturas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,8 +338,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201907141722452_migracion5.resx">
-      <DependentUpon>201907141722452_migracion5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907302134416_Migration7.resx">
+      <DependentUpon>201907302134416_Migration7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907302258327_Migration8.resx">
+      <DependentUpon>201907302258327_Migration8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
