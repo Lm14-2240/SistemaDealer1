@@ -1,9 +1,22 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
+@keyframes slide {
+    0% {
+        margin-top: 150%;
+    }
+
+    60% {
+        margin-top: -5%;
+    }
+
+    100% {
+        margin-top: 0%;
+    }
+}
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -13,14 +26,22 @@
     padding-top:50px;
     display:flex;
     flex-direction:column;
-}
+}*/
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
     white-space: normal;
 }
+li a:hover,
+a:active {
+    font-size: 20px;
+    transition-duration: 1s;
+}
 
+li a:visited {
+    background-color: #82c3a6;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
