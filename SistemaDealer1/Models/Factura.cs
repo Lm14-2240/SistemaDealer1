@@ -15,16 +15,24 @@ namespace SistemaDealer1.Models
         [Key]
         [ScaffoldColumn(false)]
         public int FacturaId { get; set; }
+
         [Display(Name = "Empleado")]
         public int EmpleadoId { get; set; }
+
         [Display(Name = "Cliente")]
         public int ClienteId { get; set; }
+
+        [Display(Name = "Vehiculo")]
+        public int VehiculoId { get; set; }
+
         [Required(ErrorMessage = "Por favor insertar el Metodo de Pago")]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         [Display(Name = "Metodo de Pago")]
         public string MetodoPago { get; set; }
+
         [Required(ErrorMessage = "Por favor insertar el Precio total")]
         public decimal PrecioTotal { get; set; }
+
         [Required(ErrorMessage = "Por favor insertar la fecha")]
         [Display(Name = "Fecha de Venta")]
         [DataType(DataType.Date)]
@@ -32,7 +40,11 @@ namespace SistemaDealer1.Models
        
         [ForeignKey("EmpleadoId")]
         public Empleado Empleado { get; set; }
+
         [ForeignKey("ClienteId")]
         public Cliente Cliente { get; set; }
+
+        [ForeignKey("VehiculoId")]
+        public Vehiculo Vehiculo { get; set; }
     }
 }

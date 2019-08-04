@@ -13,6 +13,7 @@ namespace SistemaDealer1.Models
     public class Personas
     {
 
+        
         [Required(ErrorMessage = "Por favor insertar nombre")]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         public string Nombre { get; set; }

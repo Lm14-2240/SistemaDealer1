@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201908041540300_Migration7.Designer.cs">
       <DependentUpon>201908041540300_Migration7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908042112496_Migration8.cs" />
+    <Compile Include="Migrations\201908042112496_Migration8.Designer.cs">
+      <DependentUpon>201908042112496_Migration8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
@@ -359,11 +363,6 @@
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
-    <Content Include="Views\Reservas\Create.cshtml" />
-    <Content Include="Views\Reservas\Delete.cshtml" />
-    <Content Include="Views\Reservas\Details.cshtml" />
-    <Content Include="Views\Reservas\Edit.cshtml" />
-    <Content Include="Views\Reservas\Index.cshtml" />
     <Content Include="Views\Facturas\Create.cshtml" />
     <Content Include="Views\Facturas\Delete.cshtml" />
     <Content Include="Views\Facturas\Details.cshtml" />
@@ -395,6 +394,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908041540300_Migration7.resx">
       <DependentUpon>201908041540300_Migration7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908042112496_Migration8.resx">
+      <DependentUpon>201908042112496_Migration8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
