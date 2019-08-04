@@ -16,6 +16,7 @@ namespace SistemaDealer1.Models
         [Key]
         [ScaffoldColumn(false)]
         public int MarcaId { get; set; }
+
         [Required(ErrorMessage = "Por favor insertar la marca nueva"), MaxLength(30)]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         [Display(Name = "Marca")]

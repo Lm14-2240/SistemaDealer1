@@ -16,8 +16,10 @@ namespace SistemaDealer1.Models
         [Key]
         [ScaffoldColumn(false)]
         public int ModeloId { get; set; }
+
         [Display(Name = "Marca")]
         public int MarcaId { get; set; }
+
         [Required(ErrorMessage = "Por favor insertar el modelo nuevo")]
         [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
         [Display(Name = "Modelo")]
