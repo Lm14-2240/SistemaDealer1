@@ -66,18 +66,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vehículo
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @Html.ActionLink("Combustibles", "Index", "Combustibles")
-                        @Html.ActionLink("Marcas", "Index", "Marcas")
-                        @Html.ActionLink("Modelos", "Index", "Modeloes")
-                        @Html.ActionLink("Transmisiones", "Index", "Transmisions")
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vehículo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @Html.ActionLink("Combustibles", "Index", "Combustibles", null, new {@class = "dropdown-item"})
+                            @Html.ActionLink("Marcas", "Index", "Marcas", null, new {@class = "dropdown-item"})
+                            @Html.ActionLink("Modelos", "Index", "Modeloes", null, new {@class = "dropdown-item"})
+                            @Html.ActionLink("Transmisiones", "Index", "Transmisions", null, new {@class = "dropdown-item"})
+                        </div>
                     </div>
                 </li>
                 <li class="nav-item">@Html.ActionLink("Clientes", "Index", "Clientes")</li>
@@ -86,7 +85,7 @@
 
                 <li class="nav-item">@Html.ActionLink("Roles", "Index", "Rols")</li>
                 <li class="nav-item">@Html.ActionLink("Sucursales", "Index", "Sucursals")</li>
-                <li class="nav-item" >@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
+                <li class="nav-item">@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
                 <li class="nav-item">@Html.ActionLink("Vehiculos", "Index", "Vehiculoes")</li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -106,5 +105,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-</html>
+    </html>
