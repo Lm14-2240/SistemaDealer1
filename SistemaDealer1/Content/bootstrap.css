@@ -3632,6 +3632,21 @@ tbody.collapse.in {
   bottom: 100%;
   margin-bottom: 2px;
 }
+
+
+.navbar-fixed-left .dropdown .caret {
+    content: "";
+    border-top: 0;
+    border-bottom: 4px dashed;
+    border-bottom: 4px solid \9;
+}
+
+.dropup .dropdown-menu,
+.navbar-fixed-left .dropdown .dropdown-menu {
+    right: auto;
+    left: 100%;
+    margin-bottom: 2px;
+}
 @media (min-width: 768px) {
   .navbar-right .dropdown-menu {
     right: 0;
