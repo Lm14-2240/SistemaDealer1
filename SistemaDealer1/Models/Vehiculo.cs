@@ -13,6 +13,7 @@ namespace SistemaDealer1.Models
     public class Vehiculo
     {
         [Key]
+        //[DataType(DataType.)]
         [ScaffoldColumn(false)]
         public int VehiculoId { get; set; }
 
