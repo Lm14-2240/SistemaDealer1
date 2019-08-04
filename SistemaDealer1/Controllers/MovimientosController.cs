@@ -39,7 +39,6 @@ namespace SistemaDealer1.Controllers
         // GET: Movimientos/Create
         public ActionResult Create()
         {
-
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre");
@@ -47,24 +46,19 @@ namespace SistemaDealer1.Controllers
             return View();
         }
 
-        // POST: Movimientos/Create.
+        // POST: Movimientos/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MovimientoId,Tipo_Movimiento,Cantidad,VehiculoId,ProveedorId,EmpleadoId,ClienteId")] Movimiento movimiento)
         {
-            var inventario = db.Inventarios.Where(I => I.VehiculoId ==  movimiento.VehiculoId).Count();
-            var verificacionExistencia = db.Movimientos.Any(M => M.Cantidad > inventario);
-            if (verificacionExistencia)
-                ModelState.AddModelError("Cantidad", "La Cantidad vendida no puede ser mayor a la cantidad en Existencia");
-
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(movimiento);
+                db.Movimientos.Add(movimiento);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-
-            db.Movimientos.Add(movimiento);
-            db.SaveChanges();
-            return RedirectToAction("Index");
 
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
@@ -99,17 +93,24 @@ namespace SistemaDealer1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MovimientoId,Tipo_Movimiento,Cantidad,VehiculoId,ProveedorId,EmpleadoId,ClienteId")] Movimiento movimiento)
         {
-            if (ModelState.IsValid)
+            var inventario = db.Inventarios.Where(I => I.VehiculoId == movimiento.VehiculoId).Count();
+            var verificacionExistencia = db.Movimientos.Any(M => M.Cantidad > inventario);
+            if (verificacionExistencia)
+                ModelState.AddModelError("Cantidad", "La Cantidad vendida no puede ser mayor a la cantidad en Existencia");
+
+            if (!ModelState.IsValid)
             {
-                db.Entry(movimiento).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
+                ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
+                ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre", movimiento.ProveedorId);
+                ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", movimiento.VehiculoId);
+                return View(movimiento);
             }
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
-            ViewBag.ProveedorId = new SelectList(db.Proveedores, "ProveedorId", "Nombre", movimiento.ProveedorId);
-            ViewBag.VehiculoId = new SelectList(db.Vehiculoes, "VehiculoId", "Color", movimiento.VehiculoId);
-            return View(movimiento);
+            
+
+            db.Entry(movimiento).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Movimientos/Delete/5
