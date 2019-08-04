@@ -197,9 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908041540300_Migration7.cs" />
-    <Compile Include="Migrations\201908041540300_Migration7.Designer.cs">
-      <DependentUpon>201908041540300_Migration7.cs</DependentUpon>
+    <Compile Include="Migrations\201908042039017_first.cs" />
+    <Compile Include="Migrations\201908042039017_first.Designer.cs">
+      <DependentUpon>201908042039017_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -390,8 +390,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908041540300_Migration7.resx">
-      <DependentUpon>201908041540300_Migration7.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908042039017_first.resx">
+      <DependentUpon>201908042039017_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
