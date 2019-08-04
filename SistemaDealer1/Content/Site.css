@@ -14,7 +14,12 @@
     }
 }
 
-
+body {
+    background-image: url("../sources/car-rental.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .body-content {
     padding-left: 15px;
     padding-right: 15px;

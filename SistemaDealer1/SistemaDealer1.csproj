@@ -265,6 +265,8 @@
     <Content Include="Scripts\v4-shims.js" />
     <Content Include="Scripts\v4-shims.min.js" />
     <Content Include="Scripts\VehiculoController.js" />
+    <Content Include="sources\car-rental.jpg" />
+    <Content Include="sources\christopher-rusev-e6o5cTvOYoI-unsplash.jpg" />
     <Content Include="Views\favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
