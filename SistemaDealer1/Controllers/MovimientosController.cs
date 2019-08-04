@@ -98,7 +98,7 @@ namespace SistemaDealer1.Controllers
             if (verificacionExistencia)
                 ModelState.AddModelError("Cantidad", "La Cantidad vendida no puede ser mayor a la cantidad en Existencia");
 
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", movimiento.ClienteId);
                 ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", movimiento.EmpleadoId);
