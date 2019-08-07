@@ -179,7 +179,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebAPIConfig.cs" />
-    <Compile Include="Controllers\Clientes1Controller.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CombustiblesController.cs" />
     <Compile Include="Controllers\EmpleadoesController.cs" />
@@ -217,6 +216,7 @@
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Modelo.cs" />
     <Compile Include="Models\Proveedor.cs" />
+    <Compile Include="Models\pruebaclase.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\SistemaDealer1DBContext.cs" />
     <Compile Include="Models\Sucursal.cs" />
@@ -265,6 +265,11 @@
     <Content Include="Scripts\v4-shims.js" />
     <Content Include="Scripts\v4-shims.min.js" />
     <Content Include="Scripts\VehiculoController.js" />
+    <Content Include="sources\14285.jpg" />
+    <Content Include="sources\179314-OWJABX-744.jpg" />
+    <Content Include="sources\651.jpg" />
+    <Content Include="sources\blue-cybernetic-background-2964.jpg" />
+    <Content Include="sources\businessman-holding-car-key_38810-7134.jpg" />
     <Content Include="sources\car-rental.jpg" />
     <Content Include="sources\christopher-rusev-e6o5cTvOYoI-unsplash.jpg" />
     <Content Include="Views\favicon.ico" />
@@ -390,7 +395,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Servicios\" />
-    <Folder Include="Views\Clientes1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
