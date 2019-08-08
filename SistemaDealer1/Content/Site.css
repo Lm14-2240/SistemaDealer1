@@ -14,6 +14,20 @@
     }
 }
 
+body {
+    background-image: url("../sources/14285.jpg");
+    background-repeat:no-repeat;
+
+    background-size:cover;
+
+}
+nav {
+    opacity: 0.6;
+}
+
+#table{
+    color:white;
+}
 
 .body-content {
     padding-left: 15px;
