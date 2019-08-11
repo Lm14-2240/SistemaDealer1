@@ -179,7 +179,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebAPIConfig.cs" />
-    <Compile Include="Controllers\Clientes1Controller.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CombustiblesController.cs" />
     <Compile Include="Controllers\EmpleadoesController.cs" />
@@ -388,7 +387,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Servicios\" />
-    <Folder Include="Views\Clientes1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
