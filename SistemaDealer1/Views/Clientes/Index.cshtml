@@ -62,8 +62,11 @@
                 @Html.DisplayFor(modelItem => item.Telefono)
             </td>
             <td>
+                <a><i class="far fa-edit"></i></a>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ClienteId }) |
+                <a><i class="fas fa-list"></i></a>
                 @Html.ActionLink("Details", "Details", new { id = item.ClienteId }) |
+                <a><i class="fas fa-trash"></i></a>
                 @Html.ActionLink("Delete", "Delete", new { id = item.ClienteId })
             </td>
         </tr>

@@ -196,13 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908090012291_Migracion4.cs" />
-    <Compile Include="Migrations\201908090012291_Migracion4.Designer.cs">
-      <DependentUpon>201908090012291_Migracion4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908090014302_Migracion5.cs" />
-    <Compile Include="Migrations\201908090014302_Migracion5.Designer.cs">
-      <DependentUpon>201908090014302_Migracion5.cs</DependentUpon>
+    <Compile Include="Migrations\201908111534106_MigrationM.cs" />
+    <Compile Include="Migrations\201908111534106_MigrationM.Designer.cs">
+      <DependentUpon>201908111534106_MigrationM.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -415,11 +411,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908090012291_Migracion4.resx">
-      <DependentUpon>201908090012291_Migracion4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908090014302_Migracion5.resx">
-      <DependentUpon>201908090014302_Migracion5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908111534106_MigrationM.resx">
+      <DependentUpon>201908111534106_MigrationM.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
