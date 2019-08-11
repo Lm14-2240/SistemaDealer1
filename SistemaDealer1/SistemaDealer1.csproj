@@ -196,9 +196,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908111534106_MigrationM.cs" />
-    <Compile Include="Migrations\201908111534106_MigrationM.Designer.cs">
-      <DependentUpon>201908111534106_MigrationM.cs</DependentUpon>
+    <Compile Include="Migrations\201908112022282_migration1.cs" />
+    <Compile Include="Migrations\201908112022282_migration1.Designer.cs">
+      <DependentUpon>201908112022282_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -403,6 +403,7 @@
     <Content Include="Views\Inventarios\Details.cshtml" />
     <Content Include="Views\Inventarios\Edit.cshtml" />
     <Content Include="Views\Inventarios\Index.cshtml" />
+    <Content Include="Views\Login\LoginPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -412,8 +413,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908111534106_MigrationM.resx">
-      <DependentUpon>201908111534106_MigrationM.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908112022282_migration1.resx">
+      <DependentUpon>201908112022282_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

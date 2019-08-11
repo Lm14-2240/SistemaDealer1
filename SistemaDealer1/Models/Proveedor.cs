@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using static SistemaDealer1.Models.Personas;
 
 namespace SistemaDealer1.Models
 {
@@ -24,7 +25,6 @@ namespace SistemaDealer1.Models
         public string Telefono { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar el estatus")]
-        [StringLength(30, ErrorMessage = "Por favor introduzca 30 caracteres o menos")]
-        public string Estatus { get; set; }
+        public Estado Estatus { get; set; }
     }
 }

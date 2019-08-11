@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<SistemaDealer1.Models.Vehiculo>
 
 @{
-    ViewBag.Title = "Index";
+     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <p>
     <a href="/Vehiculoes/Create">
-        <i class="fas fa-car" style="font-size:30px;margin-top:10px;"> Nuevo Vehiculo</i>
+        <i class="fas fa-car" style="font-size:25px;margin-top:10px;"> Nuevo Vehiculo</i>
     </a>
 </p>
-<table class="table"  style="color:blue;">
+<table class="table"  style="color:white;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Marca.Descripcion)
@@ -59,11 +59,8 @@
             @Html.DisplayFor(modelItem => item.Puertas)
         </td>
         <td>
-            <a><i class="far fa-edit"></i></a>
             @Html.ActionLink("Edit", "Edit", new { id = item.VehiculoId }) |
-            <a><i class="fas fa-list"></i></a>
             @Html.ActionLink("Details", "Details", new { id = item.VehiculoId }) |
-            <a><i class="fas fa-trash"></i></a>
             @Html.ActionLink("Delete", "Delete", new { id = item.VehiculoId })
         </td>
     </tr>

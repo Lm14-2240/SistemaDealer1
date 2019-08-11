@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <p>
-    <a href="/Proveedors/Create">
-        <i class="fas fa-truck" style="font-size:30px;margin-top:10px;"> Nuevo Proveedor</i>
+    <a href="/Proveedores/Create">
+        <i class="fas fa-truck" style="font-size:25px;margin-top:10px;"> Nuevo Proveedor</i>
     </a>
 </p>
-<table class="table"  style="color:blue;">
+<table class="table"  style="color:white;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -35,12 +35,9 @@
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
-            <a><i class="far fa-edit"></i></a>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ProveedorId }) |
-            <a><i class="fas fa-list"></i></a>
-            @Html.ActionLink("Details", "Details", new { id = item.ProveedorId }) |
-            <a><i class="fas fa-trash"></i></a>
-            @Html.ActionLink("Delete", "Delete", new { id = item.ProveedorId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProveedorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProveedorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProveedorId })
         </td>
     </tr>
 }

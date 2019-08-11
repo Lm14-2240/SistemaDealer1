@@ -6,10 +6,10 @@
 }
 <p>
     <a href="/Sucursals/Create">
-        <i class="fas fa-store" style="font-size:30px;margin-top:10px;"> Nueva Sucursal</i>
+        <i class="fas fa-store" style="font-size:25px;margin-top:10px;"> Nueva Sucursal</i>
     </a>
 </p>
-<table class="table"  style="color:blue;">
+<table class="table"  style="color:white;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Encargado.Usuario)
@@ -41,12 +41,9 @@
             @Html.DisplayFor(modelItem => item.Correo)
         </td>
         <td>
-            <a><i class="far fa-edit"></i></a>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SucursalId }) |
-            <a><i class="fas fa-list"></i></a>
-            @Html.ActionLink("Details", "Details", new { id = item.SucursalId }) |
-            <a><i class="fas fa-trash"></i></a>
-            @Html.ActionLink("Delete", "Delete", new { id = item.SucursalId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.SucursalId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SucursalId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SucursalId })
         </td>
     </tr>
 }
