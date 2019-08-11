@@ -37,6 +37,7 @@ namespace SistemaDealer1.Controllers
             return View();
         }
 
+        //Validaciones
         // POST: Transmisions/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

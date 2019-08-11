@@ -36,6 +36,7 @@ namespace SistemaDealer1.Controllers
             return View(movimiento);
         }
 
+        //Validaciones
         // GET: Movimientos/Create
         public ActionResult Create()
         {

@@ -36,6 +36,7 @@ namespace SistemaDealer1.Controllers
             return View(inventario);
         }
 
+        //Validaciones
         // GET: Inventarios/Create
         public ActionResult Create()
         {

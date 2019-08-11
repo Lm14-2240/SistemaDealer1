@@ -41,6 +41,7 @@ namespace SistemaDealer1.Controllers
             return View();
         }
 
+        //Validaciones
         // POST: Marcas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]

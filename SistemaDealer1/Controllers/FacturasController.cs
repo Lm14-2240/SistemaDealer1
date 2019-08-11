@@ -32,6 +32,7 @@ namespace SistemaDealer1.Controllers
             return View(factura);
         }
 
+        //Validaciones
         // GET: Facturas/Create
         public ActionResult Create()
         {
