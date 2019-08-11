@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using static SistemaDealer1.Models.Personas;
 
 namespace SistemaDealer1.Models
 {
@@ -44,11 +45,8 @@ namespace SistemaDealer1.Models
         [Required(ErrorMessage = "Por favor insertar la cantidad de puertas del vehiculo")]
         public int Puertas { get; set; }
 
-        //quitar
-
-        [DataType(DataType.Text)]
-        [Required(ErrorMessage = "Por favor insertar el estatus del vehiculo"), MaxLength(30)]
-        public string Estatus { get; set; }
+        [Required(ErrorMessage = "Por favor insertar el estatus del vehiculo")]
+        public Estado Estatus { get; set; }
 
         [ForeignKey("MarcaId")]
         public Marca Marca { get; set; }
