@@ -35,13 +35,10 @@ namespace SistemaDealer1.Controllers
         // GET: Facturas/Create
         public ActionResult Create()
         {
-
             var vehiculos = db.Vehiculoes.Include(c => c.Marca).ToList();
-
-            ViewBag.MarcaId = new SelectList(db.Marcas, "MarcaId", "Descripcion");
-            ViewBag.ModeloId = new SelectList(db.Modelos, "ModeloId", "Descripcion");
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
+
             return View();
         }
 
