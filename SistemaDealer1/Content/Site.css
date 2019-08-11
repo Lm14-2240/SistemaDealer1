@@ -15,7 +15,8 @@
 }
 
 body {
-    background-image: url("../sources/14285.jpg");
+    /*background-image: url("../sources/14285.jpg");*/
+    background-color:cornflowerblue;
     background-repeat:no-repeat;
 
     background-size:cover;
