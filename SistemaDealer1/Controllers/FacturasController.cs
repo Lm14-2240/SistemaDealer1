@@ -35,6 +35,18 @@ namespace SistemaDealer1.Controllers
         // GET: Facturas/Create
         public ActionResult Create()
         {
+
+            var Usuario = db.Empleados.ToList();
+            var Clientes = db.Clientes.ToList();
+
+            FacturaDTO DTO = new FacturaDTO();//Instancia
+            DTO.usuario = Usuario;
+            DTO.clientes = Clientes;
+
+            ViewBag.Usuario = new SelectList(Usuario, "EmpleadoId", "Nombre"); //crear variable para usar en la vista
+            ViewBag.Clientes = new SelectList(Clientes, "ClienteId", "Nombre");
+
+
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             return View();

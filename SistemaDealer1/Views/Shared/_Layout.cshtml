@@ -4,67 +4,62 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Dealer2.0</title>
-    @*<script src="~/Scripts/bootstrap.min.js"></script>
-        <link href="~/Content/bootstrap.css" rel="stylesheet" />
-        <script src="~/Scripts/bootstrap.js"></script>
-        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+
     <script src="https://kit.fontawesome.com/e3596cc206.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/Site.css" rel="stylesheet" />
 </head>
-<body>
+<body >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Clientes/Index" style="font-family:'Lora', serif"><i class="fas fa-user-friends"></i> Clientes</a>
-                    @*@Html.ActionLink("Clientes", "Index", "Clientes", null, new { @class = "nav-link" })*@
+                    <a href="/Clientes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados"><i class="fas fa-user-friends"></i> Clientes</a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Empleadoes/Index" style="font-family:'Lora', serif">
+                    <a href="/Empleadoes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados">
                         <i class="fas fa-user-tie"></i> Empleados
-                        @*@Html.ActionLink("Empleados", "Index", "Empleadoes", null, new { @class = "nav-link" })*@
                     </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Facturas/Index" style="font-family:'Lora', serif"> <i class="fas fa-file-invoice"></i> Facturas</a>
-                    @*@Html.ActionLink("Facturas", "Index", "Facturas", null, new { @class = "nav-link" })*@
+                    <a href="/Facturas/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las facturas"> <i class="fas fa-file-invoice"></i> Facturas</a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Rols/Index" style="font-family:'Lora', serif">
+                    <a href="/Rols/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de los roles de los Empleados">
                         <i class="fas fa-user-tag"></i> Roles
-                        @*@Html.ActionLink("Roles", "Index", "Rols", null, new { @class = "nav-link" })*@
+                    </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Sucursals/Index" style="font-family:'Lora', serif"><i class="fas fa-store-alt"></i> Sucursales</a>
-                    @*@Html.ActionLink("Sucursales", "Index", "Sucursals", null, new { @class = "nav-link" })*@
+                    <a href="/Sucursals/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las sucursales"><i class="fas fa-store-alt"></i> Sucursales</a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Proveedores/Index" style="font-family:'Lora', serif">
+                    <a href="/Proveedores/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de los provedores de la empresa">
                         <i class="fas fa-truck"> Provedores</i>
-                        @*@Html.ActionLink("Proveedores", "Index", "Proveedores", null, new { @class = "nav-link" })*@
+                    </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Vehiculoes/Index" style="font-family:'Lora', serif"><i class="fas fa-car"></i> Vehículos</a>
-                    @*@Html.ActionLink("Vehiculos", "Index", "Vehiculoes", null, new { @class = "nav-link" })*@
+                    <a href="/Vehiculoes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de los vehículos registrados"><i class="fas fa-car"></i> Vehículos</a>
+                </li>
+
+                
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Movimientos/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las ventas/compras de la empresa"><i class="fas fa-money-check-alt"></i> Movimientos</a>
                 </li>
                 <li class="nav-item dropdown" style="margin-right:100px;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Vehículo
-                    </a>
+                    </a>    
+                    
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @Html.ActionLink("Combustibles", "Index", "Combustibles", null, new { @class = "nav-link" })
                         @Html.ActionLink("Marcas", "Index", "Marcas", null, new { @class = "dropdown-item" })
@@ -84,13 +79,18 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-   
+
 </body>
 </html>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+@*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>*@

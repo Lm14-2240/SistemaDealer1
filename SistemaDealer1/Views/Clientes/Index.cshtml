@@ -6,10 +6,11 @@
 }
 <p>
     <a href="/Clientes/Create">
-    <i class="fas fa-user-plus" style="font-size:50px;margin-top:10px;"> Nuevo Cliente</i>
+    <i class="fas fa-user-plus" style="font-size:25px;margin-top:10px;"> Nuevo Cliente</i>
     </a>
+
 </p>
-<table class="table">
+<table class="table" style="color:white;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -61,8 +62,11 @@
                 @Html.DisplayFor(modelItem => item.Telefono)
             </td>
             <td>
+                <a><i class="far fa-edit"></i></a>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ClienteId }) |
+                <a><i class="fas fa-list"></i></a>
                 @Html.ActionLink("Details", "Details", new { id = item.ClienteId }) |
+                <a><i class="fas fa-trash"></i></a>
                 @Html.ActionLink("Delete", "Delete", new { id = item.ClienteId })
             </td>
         </tr>

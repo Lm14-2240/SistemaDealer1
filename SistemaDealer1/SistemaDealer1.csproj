@@ -179,7 +179,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebAPIConfig.cs" />
-    <Compile Include="Controllers\Clientes1Controller.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CombustiblesController.cs" />
     <Compile Include="Controllers\EmpleadoesController.cs" />
@@ -197,17 +196,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908042039017_first.cs" />
-    <Compile Include="Migrations\201908042039017_first.Designer.cs">
-      <DependentUpon>201908042039017_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908042112496_Migration8.cs" />
-    <Compile Include="Migrations\201908042112496_Migration8.Designer.cs">
-      <DependentUpon>201908042112496_Migration8.cs</DependentUpon>
+    <Compile Include="Migrations\201908111534106_MigrationM.cs" />
+    <Compile Include="Migrations\201908111534106_MigrationM.Designer.cs">
+      <DependentUpon>201908111534106_MigrationM.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
+    <Compile Include="Models\FacturaDTO.cs" />
     <Compile Include="Models\Factura_detalle.cs" />
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Marca.cs" />
@@ -217,6 +213,7 @@
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Modelo.cs" />
     <Compile Include="Models\Proveedor.cs" />
+    <Compile Include="Models\pruebaclase.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\SistemaDealer1DBContext.cs" />
     <Compile Include="Models\Sucursal.cs" />
@@ -265,6 +262,27 @@
     <Content Include="Scripts\v4-shims.js" />
     <Content Include="Scripts\v4-shims.min.js" />
     <Content Include="Scripts\VehiculoController.js" />
+    <Content Include="sources\14285.jpg" />
+    <Content Include="sources\179314-OWJABX-744.jpg" />
+    <Content Include="sources\651.jpg" />
+    <Content Include="sources\Auto-Corvette-oscuro-para-fondo-de-whatsapp-2-576x1024.png" />
+    <Content Include="sources\auto-icon-png-28.jpg" />
+    <Content Include="sources\auto1.png" />
+    <Content Include="sources\blue-cybernetic-background-2964.jpg" />
+    <Content Include="sources\businessman-holding-car-key_38810-7134.jpg" />
+    <Content Include="sources\car-dealership-marketing-1210x392.jpg" />
+    <Content Include="sources\car-rental.jpg" />
+    <Content Include="sources\Carretera.jpg" />
+    <Content Include="sources\carretera1.jpg" />
+    <Content Include="sources\carretera2.jpg" />
+    <Content Include="sources\carretera3.jpg" />
+    <Content Include="sources\carretera4.png" />
+    <Content Include="sources\carreteraconluz.jpg" />
+    <Content Include="sources\carreteramasomenos.jpg" />
+    <Content Include="sources\carroooo.jpg" />
+    <Content Include="sources\christopher-rusev-e6o5cTvOYoI-unsplash.jpg" />
+    <Content Include="sources\medidor1.png" />
+    <Content Include="sources\medidor2.jpg" />
     <Content Include="Views\favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -388,17 +406,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Servicios\" />
-    <Folder Include="Views\Clientes1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908042039017_first.resx">
-      <DependentUpon>201908042039017_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908042112496_Migration8.resx">
-      <DependentUpon>201908042112496_Migration8.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908111534106_MigrationM.resx">
+      <DependentUpon>201908111534106_MigrationM.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
