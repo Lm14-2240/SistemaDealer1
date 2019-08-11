@@ -196,17 +196,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908042039017_first.cs" />
-    <Compile Include="Migrations\201908042039017_first.Designer.cs">
-      <DependentUpon>201908042039017_first.cs</DependentUpon>
+    <Compile Include="Migrations\201908090012291_Migracion4.cs" />
+    <Compile Include="Migrations\201908090012291_Migracion4.Designer.cs">
+      <DependentUpon>201908090012291_Migracion4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908042112496_Migration8.cs" />
-    <Compile Include="Migrations\201908042112496_Migration8.Designer.cs">
-      <DependentUpon>201908042112496_Migration8.cs</DependentUpon>
+    <Compile Include="Migrations\201908090014302_Migracion5.cs" />
+    <Compile Include="Migrations\201908090014302_Migracion5.Designer.cs">
+      <DependentUpon>201908090014302_Migracion5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
+    <Compile Include="Models\FacturaDTO.cs" />
     <Compile Include="Models\Factura_detalle.cs" />
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Marca.cs" />
@@ -401,11 +402,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908042039017_first.resx">
-      <DependentUpon>201908042039017_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908090012291_Migracion4.resx">
+      <DependentUpon>201908090012291_Migracion4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908042112496_Migration8.resx">
-      <DependentUpon>201908042112496_Migration8.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908090014302_Migracion5.resx">
+      <DependentUpon>201908090014302_Migracion5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

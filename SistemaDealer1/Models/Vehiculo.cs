@@ -44,12 +44,7 @@ namespace SistemaDealer1.Models
         [Required(ErrorMessage = "Por favor insertar la cantidad de puertas del vehiculo")]
         public int Puertas { get; set; }
 
-        [Required(ErrorMessage = "Por favor insertar la cantidad en existencia del vehiculo")]
-        [Display(Name = "Cantidad en Existencia")]
-        public int CantidadExistente { get; set; }
-
-        [Display(Name = "Fecha de Entrada un cambio ")]
-        public DateTime FechadeEntrada { get; set; } = DateTime.Now;
+        //quitar
 
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Por favor insertar el estatus del vehiculo"), MaxLength(30)]
