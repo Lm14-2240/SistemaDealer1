@@ -6,10 +6,10 @@
 }
 <p>
     <a href="/Proveedors/Create">
-        <i class="fas fa-truck" style="font-size:50px;margin-top:10px;"> Nuevo Proveedor</i>
+        <i class="fas fa-truck" style="font-size:30px;margin-top:10px;"> Nuevo Proveedor</i>
     </a>
 </p>
-<table class="table"  style="color:white;">
+<table class="table"  style="color:blue;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -35,9 +35,12 @@
             @Html.DisplayFor(modelItem => item.Estatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProveedorId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProveedorId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProveedorId })
+            <a><i class="far fa-edit"></i></a>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProveedorId }) |
+            <a><i class="fas fa-list"></i></a>
+            @Html.ActionLink("Details", "Details", new { id = item.ProveedorId }) |
+            <a><i class="fas fa-trash"></i></a>
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProveedorId })
         </td>
     </tr>
 }

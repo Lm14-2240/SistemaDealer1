@@ -18,48 +18,58 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Clientes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados"><i class="fas fa-user-friends"></i> Clientes</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Empleadoes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados">
-                        <i class="fas fa-user-tie"></i> Empleados
+                    <a href="/Clientes/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Lista de Clientes registrados">
+                        <Strong> <i class="fas fa-user-friends"></i> Clientes</Strong>
                     </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Facturas/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las facturas"> <i class="fas fa-file-invoice"></i> Facturas</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Rols/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de los roles de los Empleados">
-                        <i class="fas fa-user-tag"></i> Roles
+                    <a href="/Empleadoes/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados">
+                        <Strong> <i class="fas fa-user-tie"></i> Empleados</Strong>
                     </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Sucursals/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las sucursales"><i class="fas fa-store-alt"></i> Sucursales</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Proveedores/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de los provedores de la empresa">
-                        <i class="fas fa-truck"> Provedores</i>
+                    <a href="/Facturas/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de las Facturas">
+                        <Strong><i class="fas fa-file-invoice"></i> Facturas</Strong>
                     </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Vehiculoes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de los vehículos registrados"><i class="fas fa-car"></i> Vehículos</a>
+                    <a href="/Rols/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de los roles de los Empleados">
+                        <Strong><i class="fas fa-user-tag"></i> Roles</Strong>
+                    </a>
                 </li>
 
-                
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Movimientos/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las ventas/compras de la empresa"><i class="fas fa-money-check-alt"></i> Movimientos</a>
+                    <a href="/Sucursals/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de las Sucursales">
+                        <Strong><i class="fas fa-store-alt"></i> Sucursales</Strong>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Proveedores/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de los Proveedores registrados">
+                        <Strong><i class="fas fa-store-alt"></i> Proveedores</Strong>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Vehiculoes/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Lista de los Vehículos registrados">
+                        <Strong><i class="fas fa-car"></i> Vehículos</Strong>
+                    </a>
+                </li>
+
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Movimientos/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de las Ventas/Compras de la empresa">
+                        <Strong><i class="fas fa-money-check-alt"></i> Movimientos</Strong>
+                    </a>
                 </li>
                 <li class="nav-item dropdown" style="margin-right:100px;">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Vehículo
-                    </a>    
-                    
+                    </a>
+
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @Html.ActionLink("Combustibles", "Index", "Combustibles", null, new { @class = "nav-link" })
                         @Html.ActionLink("Marcas", "Index", "Marcas", null, new { @class = "dropdown-item" })

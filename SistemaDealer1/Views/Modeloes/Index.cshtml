@@ -30,9 +30,12 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ModeloId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ModeloId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ModeloId })
+            <a><i class="far fa-edit"></i></a>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ModeloId }) |
+            <a><i class="fas fa-list"></i></a>
+            @Html.ActionLink("Details", "Details", new { id = item.ModeloId }) |
+            <a><i class="fas fa-trash"></i></a>
+            @Html.ActionLink("Delete", "Delete", new { id = item.ModeloId })
         </td>
     </tr>
 }

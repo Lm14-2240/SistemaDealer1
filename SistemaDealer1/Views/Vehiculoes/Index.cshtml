@@ -6,10 +6,10 @@
 }
 <p>
     <a href="/Vehiculoes/Create">
-        <i class="fas fa-car" style="font-size:50px;margin-top:10px;"> Nuevo Vehiculo</i>
+        <i class="fas fa-car" style="font-size:30px;margin-top:10px;"> Nuevo Vehiculo</i>
     </a>
 </p>
-<table class="table"  style="color:white;">
+<table class="table"  style="color:blue;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Marca.Descripcion)
@@ -59,8 +59,11 @@
             @Html.DisplayFor(modelItem => item.Puertas)
         </td>
         <td>
+            <a><i class="far fa-edit"></i></a>
             @Html.ActionLink("Edit", "Edit", new { id = item.VehiculoId }) |
+            <a><i class="fas fa-list"></i></a>
             @Html.ActionLink("Details", "Details", new { id = item.VehiculoId }) |
+            <a><i class="fas fa-trash"></i></a>
             @Html.ActionLink("Delete", "Delete", new { id = item.VehiculoId })
         </td>
     </tr>
