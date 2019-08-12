@@ -37,10 +37,15 @@
         @Html.ValidationMessageFor(model => model.Factura.ClienteId, "", new { @class = "text-danger" })
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-4">
-        @Html.LabelFor(model => model.DetalleFactura.Cantidad, "Cantidad", htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.TextBoxFor(c => c.DetalleFactura.Cantidad, new { @class = "form-control", type = "number" })
+        @Html.LabelFor(model => model.DetalleFactura.Cantidad, "Cantidad", htmlAttributes: new { @class = "control-label col-md-6" })
+        @Html.TextBoxFor(c => c.Factura.Cantidad, new { @class = "form-control", type = "number" })
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Factura.MetodoPago, "Método de pago", htmlAttributes: new { @class = "control-label col-md-6" })
+        @Html.EnumDropDownListFor(c => c.Factura.MetodoPago,new { @class = "form-control" })
     </div>
 </div>
     <div class="form-group">

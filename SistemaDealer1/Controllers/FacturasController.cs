@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using SistemaDealer1.Dtos;
 using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
@@ -56,8 +57,10 @@ namespace SistemaDealer1.Controllers
         // POST: Facturas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FacturaDTO factura)
+        public ActionResult Create(NuevaFacturaDto factura)
         {
+            //var controlExitencia = db.Vehiculoes.SingleOrDefault(v=>v.c)
+
             if (ModelState.IsValid)
             {
                 //db.Facturas.Add(factura);
@@ -65,8 +68,6 @@ namespace SistemaDealer1.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
-            //ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
             return View(factura);
         }
 

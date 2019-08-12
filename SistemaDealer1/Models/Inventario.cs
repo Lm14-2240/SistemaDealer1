@@ -23,6 +23,10 @@ namespace SistemaDealer1.Models
         [Display(Name = "Vehiculo")]
         public int VehiculoId { get; set; }
 
+        public int MarcaId { get; set; }
+
+        public int ModeloId { get; set; }
+
         [ForeignKey("VehiculoId")]
         public Vehiculo Vehiculo { get; set; }
     }

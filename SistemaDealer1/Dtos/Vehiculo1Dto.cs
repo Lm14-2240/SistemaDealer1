@@ -1,23 +1,21 @@
-﻿using System;
+﻿using SistemaDealer1.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-using System.Data.Entity;
 using static SistemaDealer1.Models.Personas;
 
-namespace SistemaDealer1.Models
+namespace SistemaDealer1.Dtos
 {
-    [Bind(Exclude = "VehiculoID")]
-    public class Vehiculo
+    public class Vehiculo1Dto
     {
         [Key]
         //[DataType(DataType.)]
         [ScaffoldColumn(false)]
         public int VehiculoId { get; set; }
-
+        public int EmpleadoId { get; set; }
         [Required(ErrorMessage = "Por favor insertar la marca del vehiculo")]
         [Display(Name = "Marca")]
         public int MarcaId { get; set; }
@@ -26,19 +24,15 @@ namespace SistemaDealer1.Models
         [Display(Name = "Modelo")]
         public int ModeloId { get; set; }
 
+        public int ProveedorId { get; set; }
+
         [Required(ErrorMessage = "Por favor indicar el tipo de transmision")]
         [Display(Name = "Tipo de Transmision")]
         public int TransmisionId { get; set; }
 
-        public int ProveedorId { get; set; }
-
         [Required(ErrorMessage = "Por favor insertar el combustible usado")]
         [Display(Name = "Combustible")]
         public int CombustibleId { get; set; }
-
-        //[Required(ErrorMessage = "Por favor insertar un proveedor")]
-        //[Display(Name = "Proveedor")]
-        //public int ProvedorId { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "Por favor insertar el Año del vehiculo")]
@@ -63,18 +57,14 @@ namespace SistemaDealer1.Models
         [ForeignKey("TransmisionId")]
         public Transmision Transmision { get; set; }
 
-        public int EmpleadoId { get; set; }
-
         [ForeignKey("CombustibleId")]
         public Combustible Combustible { get; set; }
-
-        public virtual Proveedor Proveedor { get; set; }
 
         public ICollection<Factura> Facturas { get; set; }
         public ICollection<Inventario> Inventario { get; set; }
         public ICollection<Movimiento> Movimiento { get; set; }
-
+        public virtual Proveedor Proveedor { get; set; }
+        public int Cantidad { get; set; }
         public virtual Empleado Empleado { get; set; }
-
     }
 }

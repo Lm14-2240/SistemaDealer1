@@ -194,12 +194,38 @@
     <Compile Include="Controllers\TransmisionsController.cs" />
     <Compile Include="Controllers\Vehiculoes1Controller.cs" />
     <Compile Include="Controllers\VehiculoesController.cs" />
+    <Compile Include="Dtos\NuevaFacturaDto.cs" />
+    <Compile Include="Dtos\Vehiculo1Dto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201908121139277_actualizarBaseDeDatos.cs" />
     <Compile Include="Migrations\201908121139277_actualizarBaseDeDatos.Designer.cs">
       <DependentUpon>201908121139277_actualizarBaseDeDatos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121248513_metodosDePago.cs" />
+    <Compile Include="Migrations\201908121248513_metodosDePago.Designer.cs">
+      <DependentUpon>201908121248513_metodosDePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121359367_vehiculos.cs" />
+    <Compile Include="Migrations\201908121359367_vehiculos.Designer.cs">
+      <DependentUpon>201908121359367_vehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121408450_inventario.cs" />
+    <Compile Include="Migrations\201908121408450_inventario.Designer.cs">
+      <DependentUpon>201908121408450_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121414192_inventario2.cs" />
+    <Compile Include="Migrations\201908121414192_inventario2.Designer.cs">
+      <DependentUpon>201908121414192_inventario2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121418538_inventario3.cs" />
+    <Compile Include="Migrations\201908121418538_inventario3.Designer.cs">
+      <DependentUpon>201908121418538_inventario3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121426071_empleado.cs" />
+    <Compile Include="Migrations\201908121426071_empleado.Designer.cs">
+      <DependentUpon>201908121426071_empleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -408,6 +434,7 @@
     <Content Include="Views\Vehiculoes\Details.cshtml" />
     <Content Include="Views\Vehiculoes\Edit.cshtml" />
     <Content Include="Views\Login\Loginpage1.cshtml" />
+    <Content Include="Views\Facturas\DetalleFactura.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -419,6 +446,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908121139277_actualizarBaseDeDatos.resx">
       <DependentUpon>201908121139277_actualizarBaseDeDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121248513_metodosDePago.resx">
+      <DependentUpon>201908121248513_metodosDePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121359367_vehiculos.resx">
+      <DependentUpon>201908121359367_vehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121408450_inventario.resx">
+      <DependentUpon>201908121408450_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121414192_inventario2.resx">
+      <DependentUpon>201908121414192_inventario2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121418538_inventario3.resx">
+      <DependentUpon>201908121418538_inventario3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121426071_empleado.resx">
+      <DependentUpon>201908121426071_empleado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
