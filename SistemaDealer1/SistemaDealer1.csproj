@@ -227,6 +227,22 @@
     <Compile Include="Migrations\201908121426071_empleado.Designer.cs">
       <DependentUpon>201908121426071_empleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908121439465_empleado2.cs" />
+    <Compile Include="Migrations\201908121439465_empleado2.Designer.cs">
+      <DependentUpon>201908121439465_empleado2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121448104_empleado3.cs" />
+    <Compile Include="Migrations\201908121448104_empleado3.Designer.cs">
+      <DependentUpon>201908121448104_empleado3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121450439_empleado4.cs" />
+    <Compile Include="Migrations\201908121450439_empleado4.Designer.cs">
+      <DependentUpon>201908121450439_empleado4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908121457227_empleado5.cs" />
+    <Compile Include="Migrations\201908121457227_empleado5.Designer.cs">
+      <DependentUpon>201908121457227_empleado5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
@@ -464,6 +480,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908121426071_empleado.resx">
       <DependentUpon>201908121426071_empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121439465_empleado2.resx">
+      <DependentUpon>201908121439465_empleado2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121448104_empleado3.resx">
+      <DependentUpon>201908121448104_empleado3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121450439_empleado4.resx">
+      <DependentUpon>201908121450439_empleado4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908121457227_empleado5.resx">
+      <DependentUpon>201908121457227_empleado5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

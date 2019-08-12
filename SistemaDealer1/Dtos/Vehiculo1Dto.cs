@@ -47,6 +47,7 @@ namespace SistemaDealer1.Dtos
 
         [Required(ErrorMessage = "Por favor insertar el estatus del vehiculo")]
         public Estado Estatus { get; set; }
+        public decimal PrecioUnitario { get; set; }
 
         [ForeignKey("MarcaId")]
         public Marca Marca { get; set; }

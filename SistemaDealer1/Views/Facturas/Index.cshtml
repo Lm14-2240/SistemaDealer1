@@ -45,7 +45,8 @@
             @Html.DisplayFor(modelItem => item.MetodoPago)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PrecioTotal)
+            @item.PrecioTotal.ToString("C")
+          @*  @Html.DisplayFor(modelItem => item.PrecioTotal.ToString("C"))*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Fecha)

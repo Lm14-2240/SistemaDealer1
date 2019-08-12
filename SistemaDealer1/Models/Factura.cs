@@ -35,7 +35,7 @@ namespace SistemaDealer1.Models
         [Required(ErrorMessage = "Por favor insertar la fecha")]
         [Display(Name = "Fecha de Venta")]
         [DataType(DataType.Date)]
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
        
         [ForeignKey("EmpleadoId")]
         public Empleado Empleado { get; set; }
@@ -45,6 +45,8 @@ namespace SistemaDealer1.Models
 
         [ForeignKey("VehiculoId")]
         public Vehiculo Vehiculo { get; set; }
+
+        public decimal PrecioUnitario { get; set; }
     }
 
     public enum MetodosDePago

@@ -79,7 +79,8 @@ namespace SistemaDealer1.Controllers
                 TransmisionId = vehiculo.TransmisionId,
                 VehiculoId = vehiculo.VehiculoId,
                 ProveedorId = vehiculo.ProveedorId,
-                EmpleadoId = vehiculo.EmpleadoId
+                EmpleadoId = vehiculo.EmpleadoId,
+                PrecioUnitario = vehiculo.PrecioUnitario
             };
 
             db.Vehiculoes.Add(vehiculo1);
@@ -101,21 +102,31 @@ namespace SistemaDealer1.Controllers
                     
                 };
 
-
+                db.Movimientos.Add(newMovimiento);
                 db.SaveChanges();
             }
             else
             {
-
                 var movimientoDeInventario = new Inventario
                 {
                     CantidadExistencia = vehiculo.Cantidad,
                     Vehiculo = ultimoVehiculo,
                     VehiculoId = ultimoVehiculo.VehiculoId,
                     MarcaId = ultimoVehiculo.MarcaId,
-                    ModeloId = ultimoVehiculo.ModeloId
+                    ModeloId = ultimoVehiculo.ModeloId,
+                    
                 };
 
+                var newMovimiento = new Movimiento
+                {
+                    Cantidad = vehiculo.Cantidad,
+                    Tipo_Movimiento = "Compra",
+                    VehiculoId = ultimoVehiculo.VehiculoId,
+                    ProveedorId = ultimoVehiculo.ProveedorId,
+                    EmpleadoId = ultimoVehiculo.EmpleadoId,
+                };
+
+                db.Movimientos.Add(newMovimiento);
                 db.Inventarios.Add(movimientoDeInventario);
                 db.SaveChanges();
             }

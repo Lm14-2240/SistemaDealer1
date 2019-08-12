@@ -76,5 +76,7 @@ namespace SistemaDealer1.Models
 
         public virtual Empleado Empleado { get; set; }
 
+        public decimal PrecioUnitario { get; set; }
+
     }
 }
