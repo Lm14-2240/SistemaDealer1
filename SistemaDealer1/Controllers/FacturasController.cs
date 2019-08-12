@@ -56,17 +56,17 @@ namespace SistemaDealer1.Controllers
         // POST: Facturas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Factura factura)
+        public ActionResult Create(FacturaDTO factura)
         {
             if (ModelState.IsValid)
             {
-                db.Facturas.Add(factura);
+                //db.Facturas.Add(factura);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
+            //ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
+            //ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
             return View(factura);
         }
 
