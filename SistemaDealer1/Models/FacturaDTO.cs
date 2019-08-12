@@ -7,9 +7,9 @@ namespace SistemaDealer1.Models
 {
     public class FacturaDTO
     {
-        public Factura factura { get; set; }
-        public List<Cliente> clientes { get; set; }
-        public List<Empleado> usuario { get; set; }
-
+        public int VehiculoId { get; set; }
+        public List<VehiculoDTO> VehiculoE { get; set; }
+        public List<Cliente> Cliente { get; set; }
+        public List<Empleado> Empleado { get; set; }
     }
 }

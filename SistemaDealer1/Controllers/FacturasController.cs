@@ -39,10 +39,16 @@ namespace SistemaDealer1.Controllers
 
             var Usuario = db.Empleados.ToList();
             var Clientes = db.Clientes.ToList();
+            var vehiculos = db.Vehiculoes.ToList().Select(c=> new VehiculoDTO {
+                Vehiculo = c,
+                MarcaNombre = db.Marcas.SingleOrDefault(d=>d.MarcaId == c.MarcaId).Descripcion,
+                ModeloNombre = db.Modelos.SingleOrDefault(mo => mo.ModeloId == c.ModeloId).Descripcion}).ToList();
 
             FacturaDTO DTO = new FacturaDTO();//Instancia
-            DTO.usuario = Usuario;
-            DTO.clientes = Clientes;
+            DTO.Empleado = Usuario;
+            DTO.Cliente = Clientes;
+            DTO.VehiculoE = vehiculos;
+
 
             ViewBag.Usuario = new SelectList(Usuario, "EmpleadoId", "Nombre"); //crear variable para usar en la vista
             ViewBag.Clientes = new SelectList(Clientes, "ClienteId", "Nombre");
@@ -50,7 +56,7 @@ namespace SistemaDealer1.Controllers
 
             ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
             ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
-            return View();
+            return View(DTO);
         }
 
         // POST: Facturas/Create
