@@ -10,27 +10,34 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - Dealer2.0</title>
+    <title>Dealer2.0</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            /*background-image: url("../../sources/Background - Lincoln and Explorer.png");*/
+            background-image: url("../../sources/Background - Jeep Wrangler.jpg");
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5 w-50">
+    <div class="container mt-5 w-50 pt-5 mr-5">
         <form method="post">
             <div class="form-group row">
-                <label for="username">Usuario</label>
-                <input class="form-control" id="username" type="text" name="username" />
+                <label class="badge" for="username" style="font-size: large">Usuario</label>
+                <input class="form-control shadow-lg p-3 bg-white rounded" id="username" type="text" name="username" />
             </div>
             <div class="form-group row">
-                <label for="password">Contrase&ntilde;a</label>
-                <input class="form-control" id="password" name="password" type="password" />
+                <label class="badge" for="password" style="font-size: large">Contrase&ntilde;a</label>
+                <input class="form-control shadow-lg p-3 bg-white rounded" id="password" name="password" type="password" />
             </div>
             <div class="alert-danger mb-3 rounded" style="text-align: center">
                 <span >@Html.ValidationMessageFor(m => m.Usuario)</span>
                 <span>@Html.ValidationMessageFor(m => m.Contraseña)</span>
             </div>
 
-            <button class="btn btn-primary float-right" type="submit">Acceder</button>
+            <button class="btn btn-primary float-right shadow-lg p-3 rounded" type="submit">Acceder</button>
         </form>
     </div>
 
