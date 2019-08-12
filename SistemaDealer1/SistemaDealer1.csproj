@@ -197,9 +197,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908112138578_Migration3.cs" />
-    <Compile Include="Migrations\201908112138578_Migration3.Designer.cs">
-      <DependentUpon>201908112138578_Migration3.cs</DependentUpon>
+    <Compile Include="Migrations\201908121139277_actualizarBaseDeDatos.cs" />
+    <Compile Include="Migrations\201908121139277_actualizarBaseDeDatos.Designer.cs">
+      <DependentUpon>201908121139277_actualizarBaseDeDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -417,8 +417,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908112138578_Migration3.resx">
-      <DependentUpon>201908112138578_Migration3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908121139277_actualizarBaseDeDatos.resx">
+      <DependentUpon>201908121139277_actualizarBaseDeDatos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

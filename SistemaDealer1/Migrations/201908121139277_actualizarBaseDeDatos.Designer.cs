@@ -7,13 +7,13 @@ namespace SistemaDealer1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0-preview6-19304-03")]
-    public sealed partial class Migration3 : IMigrationMetadata
+    public sealed partial class actualizarBaseDeDatos : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Migration3));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(actualizarBaseDeDatos));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908112138578_Migration3"; }
+            get { return "201908121139277_actualizarBaseDeDatos"; }
         }
         
         string IMigrationMetadata.Source

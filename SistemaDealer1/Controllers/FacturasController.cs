@@ -46,17 +46,10 @@ namespace SistemaDealer1.Controllers
                 }).ToList();
 
             FacturaDTO DTO = new FacturaDTO();//Instancia
-            DTO.Empleado = Usuario;
-            DTO.Cliente = Clientes;
-            DTO.VehiculoE = vehiculos;
+            DTO.Usuarios = Usuario;
+            DTO.Clientes = Clientes;
+            DTO.Vehiculos = vehiculos;
 
-
-            ViewBag.Usuario = new SelectList(Usuario, "EmpleadoId", "Nombre"); //crear variable para usar en la vista
-            ViewBag.Clientes = new SelectList(Clientes, "ClienteId", "Nombre");
-
-
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             return View(DTO);
         }
 
