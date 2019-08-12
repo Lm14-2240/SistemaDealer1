@@ -41,8 +41,9 @@ namespace SistemaDealer1.Controllers
             var Clientes = db.Clientes.ToList();
             var vehiculos = db.Vehiculoes.ToList().Select(c=> new VehiculoDTO {
                 Vehiculo = c,
-                MarcaNombre = db.Marcas.SingleOrDefault(d=>d.MarcaId == c.MarcaId).Descripcion,
-                ModeloNombre = db.Modelos.SingleOrDefault(mo => mo.ModeloId == c.ModeloId).Descripcion}).ToList();
+                MarcaNombre = db.Marcas.SingleOrDefault(d => d.MarcaId == c.MarcaId).Descripcion +" "+
+                db.Modelos.SingleOrDefault(mo => mo.ModeloId == c.ModeloId).Descripcion
+                }).ToList();
 
             FacturaDTO DTO = new FacturaDTO();//Instancia
             DTO.Empleado = Usuario;
