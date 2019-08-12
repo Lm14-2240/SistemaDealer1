@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table"  style="color:white;">
+<table class="table"  style="color:blue;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Cliente.Estatus)
@@ -54,9 +54,12 @@
             @Html.DisplayFor(modelItem => item.Cantidad)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MovimientoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MovimientoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MovimientoId })
+            <a><i class="far fa-edit"></i></a>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MovimientoId }) |
+            <a><i class="fas fa-list"></i></a>
+            @Html.ActionLink("Details", "Details", new { id = item.MovimientoId }) |
+            <a><i class="fas fa-trash"></i></a>
+            @Html.ActionLink("Delete", "Delete", new { id = item.MovimientoId })
         </td>
     </tr>
 }

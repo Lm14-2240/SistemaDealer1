@@ -192,17 +192,14 @@
     <Compile Include="Controllers\RolsController.cs" />
     <Compile Include="Controllers\SucursalsController.cs" />
     <Compile Include="Controllers\TransmisionsController.cs" />
+    <Compile Include="Controllers\Vehiculoes1Controller.cs" />
     <Compile Include="Controllers\VehiculoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908090012291_Migracion4.cs" />
-    <Compile Include="Migrations\201908090012291_Migracion4.Designer.cs">
-      <DependentUpon>201908090012291_Migracion4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908090014302_Migracion5.cs" />
-    <Compile Include="Migrations\201908090014302_Migracion5.Designer.cs">
-      <DependentUpon>201908090014302_Migracion5.cs</DependentUpon>
+    <Compile Include="Migrations\201908112138578_Migration3.cs" />
+    <Compile Include="Migrations\201908112138578_Migration3.Designer.cs">
+      <DependentUpon>201908112138578_Migration3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -223,6 +220,7 @@
     <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\Transmision.cs" />
     <Compile Include="Models\Vehiculo.cs" />
+    <Compile Include="Models\VehiculoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +257,7 @@
     <Content Include="Scripts\conflict-detection.min.js" />
     <Content Include="Scripts\fontawesome.js" />
     <Content Include="Scripts\fontawesome.min.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\regular.js" />
     <Content Include="Scripts\regular.min.js" />
     <Content Include="Scripts\solid.js" />
@@ -269,10 +268,25 @@
     <Content Include="sources\14285.jpg" />
     <Content Include="sources\179314-OWJABX-744.jpg" />
     <Content Include="sources\651.jpg" />
+    <Content Include="sources\Auto-Corvette-oscuro-para-fondo-de-whatsapp-2-576x1024.png" />
+    <Content Include="sources\auto-icon-png-28.jpg" />
+    <Content Include="sources\auto1.png" />
     <Content Include="sources\blue-cybernetic-background-2964.jpg" />
     <Content Include="sources\businessman-holding-car-key_38810-7134.jpg" />
+    <Content Include="sources\car-dealership-marketing-1210x392.jpg" />
     <Content Include="sources\car-rental.jpg" />
+    <Content Include="sources\Carretera.jpg" />
+    <Content Include="sources\carretera1.jpg" />
+    <Content Include="sources\carretera2.jpg" />
+    <Content Include="sources\carretera3.jpg" />
+    <Content Include="sources\carretera4.png" />
+    <Content Include="sources\carreteraconluz.jpg" />
+    <Content Include="sources\carreteramasomenos.jpg" />
+    <Content Include="sources\carroooo.jpg" />
     <Content Include="sources\christopher-rusev-e6o5cTvOYoI-unsplash.jpg" />
+    <Content Include="sources\fondooooooooooo.jpg" />
+    <Content Include="sources\medidor1.png" />
+    <Content Include="sources\medidor2.jpg" />
     <Content Include="Views\favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -363,9 +377,6 @@
     <Content Include="Views\Transmisions\Edit.cshtml" />
     <Content Include="Views\Transmisions\Index.cshtml" />
     <Content Include="Views\Vehiculoes\Create.cshtml" />
-    <Content Include="Views\Vehiculoes\Delete.cshtml" />
-    <Content Include="Views\Vehiculoes\Details.cshtml" />
-    <Content Include="Views\Vehiculoes\Edit.cshtml" />
     <Content Include="Views\Vehiculoes\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Clientes\Delete.cshtml" />
@@ -392,6 +403,11 @@
     <Content Include="Views\Inventarios\Details.cshtml" />
     <Content Include="Views\Inventarios\Edit.cshtml" />
     <Content Include="Views\Inventarios\Index.cshtml" />
+    <Content Include="Views\Login\LoginPage.cshtml" />
+    <Content Include="Views\Vehiculoes\Delete.cshtml" />
+    <Content Include="Views\Vehiculoes\Details.cshtml" />
+    <Content Include="Views\Vehiculoes\Edit.cshtml" />
+    <Content Include="Views\Login\Loginpage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -401,11 +417,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908090012291_Migracion4.resx">
-      <DependentUpon>201908090012291_Migracion4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908090014302_Migracion5.resx">
-      <DependentUpon>201908090014302_Migracion5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908112138578_Migration3.resx">
+      <DependentUpon>201908112138578_Migration3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

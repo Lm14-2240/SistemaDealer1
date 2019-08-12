@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table"  style="color:white;">
+<table class="table"  style="color:blue;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Descripcion)
@@ -24,9 +24,12 @@
             @Html.DisplayFor(modelItem => item.Descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CombustibleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CombustibleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CombustibleId })
+            <a><i class="far fa-edit"></i></a>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CombustibleId })
+            <a><i class="fas fa-list"></i></a>|
+            @Html.ActionLink("Details", "Details", new { id = item.CombustibleId }) |
+            <a><i class="fas fa-trash"></i></a>
+            @Html.ActionLink("Delete", "Delete", new { id = item.CombustibleId })
         </td>
     </tr>
 }

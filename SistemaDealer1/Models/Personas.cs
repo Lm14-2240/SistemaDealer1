@@ -27,5 +27,7 @@ namespace SistemaDealer1.Models
         [Display(Name = "Correo Electronico")]
         public string Correo { get; set; }
 
+        public enum Estado { Activo, Inactivo }
+
     }
 }

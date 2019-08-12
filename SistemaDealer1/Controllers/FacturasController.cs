@@ -32,36 +32,48 @@ namespace SistemaDealer1.Controllers
             return View(factura);
         }
 
+        //Validaciones
         // GET: Facturas/Create
         public ActionResult Create()
         {
-            var vehiculos = db.Vehiculoes.Include(c => c.Marca).ToList();
-            var clientes = db.Clientes.ToList();
-            var empleados = db.Empleados.ToList();
 
-            var factura = new FacturaDTO {
-                Vehiculos= vehiculos,
-                Clientes = clientes,
-                Usuarios = empleados
-            };
+            var Usuario = db.Empleados.ToList();
+            var Clientes = db.Clientes.ToList();
+            var vehiculos = db.Vehiculoes.ToList().Select(c=> new VehiculoDTO {
+                Vehiculo = c,
+                MarcaNombre = db.Marcas.SingleOrDefault(d => d.MarcaId == c.MarcaId).Descripcion +" "+
+                db.Modelos.SingleOrDefault(mo => mo.ModeloId == c.ModeloId).Descripcion
+                }).ToList();
 
-            return View(factura);
+            FacturaDTO DTO = new FacturaDTO();//Instancia
+            DTO.Empleado = Usuario;
+            DTO.Cliente = Clientes;
+            DTO.VehiculoE = vehiculos;
+
+
+            ViewBag.Usuario = new SelectList(Usuario, "EmpleadoId", "Nombre"); //crear variable para usar en la vista
+            ViewBag.Clientes = new SelectList(Clientes, "ClienteId", "Nombre");
+
+
+            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
+            return View(DTO);
         }
 
         // POST: Facturas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FacturaDTO factura)
+        public ActionResult Create(Factura factura)
         {
             if (ModelState.IsValid)
             {
-                //db.Facturas.Add(factura);
+                db.Facturas.Add(factura);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
-            //ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
+            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
+            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
             return View(factura);
         }
 

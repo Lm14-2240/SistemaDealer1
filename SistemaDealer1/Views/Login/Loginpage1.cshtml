@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Dealer2.0</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="container">
+                <label for="username">Usuario</label>
+                <input id="username" type="text" name="username" />
+            </div>
+            <div class="container">
+                <label for="password">Contrase&ntilde;a</label>
+                <input id="password" name="password" type="password" />
+            </div>
+
+            <a href="../Vehiculoes/Index.cshtml" class="button">Acceder</a>
+        </form>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+</body>
+</html>

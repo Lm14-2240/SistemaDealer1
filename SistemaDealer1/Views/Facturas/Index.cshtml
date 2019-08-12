@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }<p>
     <a href="/Facturas/Create">
-        <i class="fas fa-file-invoice" style="font-size:50px;margin-top:10px;"></i>
+        <i class="fas fa-file-invoice" style="font-size:30px;margin-top:10px;"> Nueva Factura </i>
     </a>
 </p>
-<table class="table"  style="color:white;">
+<table class="table"  style="color:blue;">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Cliente.Estatus)
@@ -51,9 +51,12 @@
             @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FacturaId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FacturaId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FacturaId })
+            <a><i class="far fa-edit"></i></a>
+            @Html.ActionLink("Edit", "Edit", new { id = item.FacturaId }) |
+            <a><i class="fas fa-list"></i></a>
+            @Html.ActionLink("Details", "Details", new { id = item.FacturaId }) |
+            <a><i class="fas fa-trash"></i></a>
+            @Html.ActionLink("Delete", "Delete", new { id = item.FacturaId })
         </td>
     </tr>
 }

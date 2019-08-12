@@ -12,53 +12,81 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/popper.min.js"></script>
 </head>
 <body >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Clientes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados"><i class="fas fa-user-friends"></i> Clientes</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Empleadoes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados">
-                        <i class="fas fa-user-tie"></i> Empleados
+                    <a href="/Clientes/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Lista de Clientes registrados">
+                        <Strong> <i class="fas fa-user-friends"></i> Clientes</Strong>
                     </a>
                 </li>
 
                 <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Facturas/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las facturas"> <i class="fas fa-file-invoice"></i> Facturas</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Rols/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de los roles de los Empleados">
-                        <i class="fas fa-user-tag"></i> Roles</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Sucursals/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de las sucursales"><i class="fas fa-store-alt"></i> Sucursales</a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Proveedores/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Manejo de los provedores de la empresa">
-                        <i class="fas fa-truck"> Provedores</i></a>
-                </li>
-
-                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
-                    <a href="/Vehiculoes/Index" style="font-family:'Lora', serif" data-toggle="tooltip" data-placement="top" title="Lista de los vehículos registrados"><i class="fas fa-car"></i> Vehículos</a>
-                </li>
-                <li class="nav-item dropdown" style="margin-right:100px;">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Vehículo
+                    <a href="/Empleadoes/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Lista de Empleados registrados">
+                        <Strong> <i class="fas fa-user-tie"></i> Empleados</Strong>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @Html.ActionLink("Combustibles", "Index", "Combustibles", null, new { @class = "nav-link" })
-                        @Html.ActionLink("Marcas", "Index", "Marcas", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Modelos", "Index", "Modeloes", null, new { @class = "dropdown-item" })
-                        @Html.ActionLink("Transmisiones", "Index", "Transmisions", null, new { @class = "dropdown-item" })
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Facturas/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de las Facturas">
+                        <Strong><i class="fas fa-file-invoice"></i> Facturas</Strong>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Rols/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de los roles de los Empleados">
+                        <Strong><i class="fas fa-user-tag"></i> Roles</Strong>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Sucursals/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de las Sucursales">
+                        <Strong><i class="fas fa-store-alt"></i> Sucursales</Strong>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Proveedores/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de los Proveedores registrados">
+                        <Strong><i class="fas fa-store-alt"></i> Proveedores</Strong>
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Vehiculoes/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Lista de los Vehículos registrados">
+                        <Strong><i class="fas fa-car"></i> Vehículos</Strong>
+                    </a>
+                </li>
+
+
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+                    <a href="/Movimientos/Index" style="font-family:'Lora', serif;font-size: 20px" data-toggle="tooltip" data-placement="top" title="Manejo de las Ventas/Compras de la empresa">
+                        <Strong><i class="fas fa-money-check-alt"></i> Movimientos</Strong>
+                    </a>
+                </li>
+                <li class="nav-item" style="margin-right:100px;margin-top:auto;margin-bottom:auto">
+
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" style="cursor:pointer; font-family:'Lora', serif;font-size: 17px"  id="dropdownMenuButton" data-toggle="dropdown" title="Caracteristicas Adicionales">
+                            <Strong><i class="fas fa-tools"></i> Caracteristicas</Strong>
+</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a href="/Combustibles/Index">
+                                <i class="fas fa-gas-pump"> Combustibles</i>
+                            </a>
+                            <a href="/Marcas/Index">
+                                <i class="fas fa-copyright"> Marcas</i>
+                            </a>                
+                            <br/>
+                            <a href="/Modeloes/Index">
+                                <i class="fas fa-car"> Modelos</i>
+                            </a>
+                            <a href="/Transmisions/Index">
+                                <i class="fas fa-car-battery"> Transmisones</i>
+                            </a>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -68,13 +96,14 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Dealer 2.0</p>
         </footer>
     </div>
     <script>
         $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
+        $('.dropdown-toggle').dropdown();
     </script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

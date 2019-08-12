@@ -36,6 +36,7 @@ namespace SistemaDealer1.Controllers
             return View(sucursal);
         }
 
+        //Validaciones
         // GET: Sucursals/Create
         public ActionResult Create()
         {

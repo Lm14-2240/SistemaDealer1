@@ -24,6 +24,7 @@ namespace SistemaDealer1.Models
         [StringLength(20, ErrorMessage = "Por favor introduzca 20 caracteres o menos")]
         public string Contraseña { get; set; }
 
+
         [ForeignKey("RolId")]
         public Rol Rol { get; set; }
 

@@ -32,6 +32,7 @@ namespace SistemaDealer1.Controllers
             return View(vehiculo);
         }
 
+        //Validaciones
         // GET: Vehiculoes/Create
         public ActionResult Create()
         {

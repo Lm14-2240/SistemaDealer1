@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -36,7 +37,7 @@ namespace SistemaDealer1.Controllers
         {
             return View();
         }
-
+        //Validaciones
         // POST: Clientes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
