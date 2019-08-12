@@ -207,7 +207,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Combustible.cs" />
-    <Compile Include="Models\FacturaDTO.cs" />
+    <Compile Include="Dtos\FacturaDTO.cs" />
     <Compile Include="Models\Factura_detalle.cs" />
     <Compile Include="Models\Inventario.cs" />
     <Compile Include="Models\Marca.cs" />
@@ -395,7 +395,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Dtos\" />
     <Folder Include="Servicios\" />
   </ItemGroup>
   <ItemGroup>

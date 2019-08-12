@@ -36,26 +36,32 @@ namespace SistemaDealer1.Controllers
         public ActionResult Create()
         {
             var vehiculos = db.Vehiculoes.Include(c => c.Marca).ToList();
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
+            var clientes = db.Clientes.ToList();
+            var empleados = db.Empleados.ToList();
 
-            return View();
+            var factura = new FacturaDTO {
+                Vehiculos= vehiculos,
+                Clientes = clientes,
+                Usuarios = empleados
+            };
+
+            return View(factura);
         }
 
         // POST: Facturas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Factura factura)
+        public ActionResult Create(FacturaDTO factura)
         {
             if (ModelState.IsValid)
             {
-                db.Facturas.Add(factura);
+                //db.Facturas.Add(factura);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
+            //ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
+            //ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
             return View(factura);
         }
 
