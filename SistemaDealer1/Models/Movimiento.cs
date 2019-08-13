@@ -28,20 +28,20 @@ namespace SistemaDealer1.Models
         public int VehiculoId { get; set; }
 
         [Display(Name = "Proveedor")]
-        public int ProveedorId { get; set; }
+        public int? ProveedorId { get; set; }
 
         [Required(ErrorMessage = "Por favor insertar el Vehiculo")]
         [Display(Name = "Empleado")]
         public int EmpleadoId { get; set; }
 
         [Display(Name = "Cliente")]
-        public int ClienteId { get; set; }
+        public int? ClienteId { get; set; }
 
         [ForeignKey("VehiculoId")]
         public Vehiculo Vehiculo { get; set; }
-        [ForeignKey("ProveedorId")]
+        //[ForeignKey("ProveedorId")]
         public Proveedor Proveedor { get; set; }
-        [ForeignKey("ClienteId")]
+        //[ForeignKey("ClienteId")]
         public Cliente Cliente { get; set; }
         [ForeignKey("EmpleadoId")]
         public Empleado Empleado { get; set; }

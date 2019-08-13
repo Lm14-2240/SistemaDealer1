@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using SistemaDealer1.Dtos;
 using SistemaDealer1.Models;
 
 namespace SistemaDealer1.Controllers
@@ -14,6 +15,8 @@ namespace SistemaDealer1.Controllers
         public ActionResult Index()
         {
             var facturas = db.Facturas.Include(f => f.Cliente).Include(f => f.Empleado);
+
+                
             return View(facturas.ToList());
         }
 
@@ -46,34 +49,70 @@ namespace SistemaDealer1.Controllers
                 }).ToList();
 
             FacturaDTO DTO = new FacturaDTO();//Instancia
-            DTO.Empleado = Usuario;
-            DTO.Cliente = Clientes;
-            DTO.VehiculoE = vehiculos;
+            DTO.Usuarios = Usuario;
+            DTO.Clientes = Clientes;
+            DTO.Vehiculos = vehiculos;
 
-
-            ViewBag.Usuario = new SelectList(Usuario, "EmpleadoId", "Nombre"); //crear variable para usar en la vista
-            ViewBag.Clientes = new SelectList(Clientes, "ClienteId", "Nombre");
-
-
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus");
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario");
             return View(DTO);
         }
 
         // POST: Facturas/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Factura factura)
+        public ActionResult Create(NuevaFacturaDto factura)
         {
+            var existencia = db.Inventarios.SingleOrDefault(c => c.VehiculoId == factura.VehiculoId);
+            var vehiculo = db.Vehiculoes.SingleOrDefault(v => v.VehiculoId == factura.VehiculoId);
+
+            if (existencia.CantidadExistencia < factura.Cantidad)
+            {
+                ModelState.AddModelError("Cantidad", "La cantidad solicitada es mayor a la cantidad en inventario");
+                var Usuario = db.Empleados.ToList();
+                var Clientes = db.Clientes.ToList();
+                var vehiculos = db.Vehiculoes.ToList().Select(c => new VehiculoDTO
+                {
+                    Vehiculo = c,
+                    MarcaNombre = db.Marcas.SingleOrDefault(d => d.MarcaId == c.MarcaId).Descripcion + " " +
+                    db.Modelos.SingleOrDefault(mo => mo.ModeloId == c.ModeloId).Descripcion
+                }).ToList();
+
+                FacturaDTO DTO = new FacturaDTO();//Instancia
+                DTO.Usuarios = Usuario;
+                DTO.Clientes = Clientes;
+                DTO.Vehiculos = vehiculos;
+                return View(DTO);
+            }
+
             if (ModelState.IsValid)
             {
-                db.Facturas.Add(factura);
+                var nuevaFactura = new Factura
+                {
+                    ClienteId = factura.ClienteId,
+                    EmpleadoId = factura.EmpleadoId,
+                    MetodoPago = factura.MetodoPago,
+                    PrecioTotal = vehiculo.PrecioUnitario * factura.Cantidad,
+                    PrecioUnitario = vehiculo.PrecioUnitario,
+                    VehiculoId = vehiculo.VehiculoId
+                };
+                db.Facturas.Add(nuevaFactura);
+
+                var movimiento = new Movimiento
+                {
+                    Cantidad = factura.Cantidad,
+                    ClienteId = factura.ClienteId,
+                    EmpleadoId = factura.EmpleadoId,
+                    Tipo_Movimiento = "Venta",
+                    VehiculoId = factura.VehiculoId,
+                };
+                db.Movimientos.Add(movimiento);
+
+                existencia.CantidadExistencia = existencia.CantidadExistencia - factura.Cantidad;
+
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ClienteId = new SelectList(db.Clientes, "ClienteId", "Estatus", factura.ClienteId);
-            ViewBag.EmpleadoId = new SelectList(db.Empleados, "EmpleadoId", "Usuario", factura.EmpleadoId);
             return View(factura);
         }
 

@@ -1,22 +1,20 @@
-﻿using System;
+﻿using SistemaDealer1.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-using System.Data.Entity;
 
-namespace SistemaDealer1.Models
+namespace SistemaDealer1.Dtos
 {
-    [Bind(Exclude = "FacturaID")]
-    public class Factura
+    public class NuevaFacturaDto
     {
         [Key]
-        [ScaffoldColumn(false)]
+        [System.ComponentModel.DataAnnotations.ScaffoldColumn(false)]
         public int FacturaId { get; set; }
 
-        [Display(Name = "Empleado")]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Empleado")]
         public int EmpleadoId { get; set; }
 
         [Display(Name = "Cliente")]
@@ -35,8 +33,8 @@ namespace SistemaDealer1.Models
         [Required(ErrorMessage = "Por favor insertar la fecha")]
         [Display(Name = "Fecha de Venta")]
         [DataType(DataType.Date)]
-        public DateTime Fecha { get; set; } = DateTime.Now;
-       
+        public DateTime Fecha { get; set; }
+
         [ForeignKey("EmpleadoId")]
         public Empleado Empleado { get; set; }
 
@@ -46,12 +44,6 @@ namespace SistemaDealer1.Models
         [ForeignKey("VehiculoId")]
         public Vehiculo Vehiculo { get; set; }
 
-        public decimal PrecioUnitario { get; set; }
-    }
-
-    public enum MetodosDePago
-    {
-        Efectivo,
-        Tarjeta
+        public int Cantidad { get; set; }
     }
 }
